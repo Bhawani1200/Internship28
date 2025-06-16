@@ -18,6 +18,8 @@ public class User {
 
     private String email;
 
+    private String Password;
+
     private String role;
 
     private String mobile;
@@ -43,13 +45,18 @@ public class User {
 
     }
 
-    public User(Long id, String firstName, String lastName, String email, String role, String mobile, List<Address> address, List<PaymentInformation> paymentInformation, List<Rating> ratings, List<Review> reviews) {
+    public User(String password) {
+        Password = password;
+    }
+
+    public User(Long id, String firstName, String email, String lastName, String mobile, String role, String password, List<Address> address, List<PaymentInformation> paymentInformation, List<Rating> ratings, List<Review> reviews) {
         this.id = id;
         this.firstName = firstName;
-        this.lastName = lastName;
         this.email = email;
-        this.role = role;
+        this.lastName = lastName;
         this.mobile = mobile;
+        this.role = role;
+        Password = password;
         this.address = address;
         this.paymentInformation = paymentInformation;
         this.ratings = ratings;
@@ -72,6 +79,10 @@ public class User {
         return email;
     }
 
+    public String getPassword() {
+        return Password;
+    }
+
     public String getRole() {
         return role;
     }
@@ -84,12 +95,12 @@ public class User {
         return address;
     }
 
-    public List<Rating> getRatings() {
-        return ratings;
-    }
-
     public List<PaymentInformation> getPaymentInformation() {
         return paymentInformation;
+    }
+
+    public List<Rating> getRatings() {
+        return ratings;
     }
 
     public List<Review> getReviews() {
@@ -112,6 +123,10 @@ public class User {
         this.email = email;
     }
 
+    public void setPassword(String password) {
+        Password = password;
+    }
+
     public void setRole(String role) {
         this.role = role;
     }
@@ -124,12 +139,12 @@ public class User {
         this.address = address;
     }
 
-    public void setRatings(List<Rating> ratings) {
-        this.ratings = ratings;
-    }
-
     public void setPaymentInformation(List<PaymentInformation> paymentInformation) {
         this.paymentInformation = paymentInformation;
+    }
+
+    public void setRatings(List<Rating> ratings) {
+        this.ratings = ratings;
     }
 
     public void setReviews(List<Review> reviews) {
