@@ -9,6 +9,7 @@ import ProductDetails from "../customer/components/ProductDetails/ProductDetails
 import Checkout from "../customer/components/Checkout/Checkout";
 import Order from "../customer/components/Order/Order";
 import OrderDetails from "../customer/components/Order/OrderDetails";
+import MainCarousel from "../customer/components/HomeCarousel/MainCarousel";
 
 const CustomerRoutes = () => {
   return (
@@ -16,7 +17,7 @@ const CustomerRoutes = () => {
       <div>
         <Navigation />
       </div>
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
 
@@ -31,7 +32,8 @@ const CustomerRoutes = () => {
           path="/account/order/:orderId"
           element={<OrderDetails />}
         ></Route>
-      </Routes>
+      </Routes> */}
+      <MainCarousel/>
       <div>
         <Footer />
       </div>

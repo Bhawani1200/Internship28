@@ -27,10 +27,11 @@ public class AuthController {
     private PasswordEncoder passwordEncoder;
     private CustomUserServiceImplementation customUserServiceImplementation;
 
-    public AuthController(UserRepository userRepository,CustomUserServiceImplementation customUserServiceImplementation,PasswordEncoder passwordEncoder){
+    public AuthController(UserRepository userRepository,CustomUserServiceImplementation customUserServiceImplementation,PasswordEncoder passwordEncoder,JwtProvider jwtProvider){
         this.userRepository= userRepository;
         this.customUserServiceImplementation=customUserServiceImplementation;
         this.passwordEncoder=passwordEncoder;
+        this.jwtProvider = jwtProvider;
     }
 
     @PostMapping("/signup")
@@ -56,11 +57,13 @@ public class AuthController {
         Authentication authentication=new UsernamePasswordAuthenticationToken(savedUser.getEmail(),savedUser.getPassword());
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String token=jwtProvider.generateToken(authentication);
-        AuthResponse authResponse=new AuthResponse(token,"Signup success") ;
+        AuthResponse authResponse=new AuthResponse() ;
+        authResponse.setJwt(token);
+        authResponse.setMessage("SignUp Success");
         return new ResponseEntity<AuthResponse>(authResponse, HttpStatus.CREATED);
     };
 
-    @PostMapping("/singin")
+    @PostMapping("/signin")
     public ResponseEntity<AuthResponse> loginUserHandler(@RequestBody LoginRequest loginRequest) {
         String username=loginRequest.getEmail();
         String password=loginRequest.getPassword();
@@ -82,4 +85,5 @@ public class AuthController {
         }
        return new UsernamePasswordAuthenticationToken(userDetails,null,userDetails.getAuthorities());
     };
+
 }
