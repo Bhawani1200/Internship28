@@ -6,10 +6,14 @@ import com.chaubisedhaka.Backend.model.Product;
 import com.chaubisedhaka.Backend.repository.CategoryRepository;
 import com.chaubisedhaka.Backend.repository.ProductRepository;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 @Service
 public class ProductServiceImplementation implements ProductService {
 
@@ -85,13 +89,18 @@ public class ProductServiceImplementation implements ProductService {
         if(req.getQuantity()!=0){
             product.setQuantity(req.getQuantity());
         }
-
         return productRepository.save(product);
     }
 
     @Override
     public Product findProductById(Long id) throws ProductException {
-        return null;
+        Optional<Product> opt=productRepository.findById(id);
+        if(opt.isPresent()){
+            return opt.get();
+
+        }
+        throw new ProductException("Product with the id is not found"+id);
+
     }
 
     @Override
@@ -100,7 +109,22 @@ public class ProductServiceImplementation implements ProductService {
     }
 
     @Override
-    public Page<Product> getAllProducts(String category, List<String> colors, List<String> sizes, Integer minPrice, Integer maxPrice, Integer minDiscount, String sort, String stock, Integer pageNumber, Integer pageSize) {
+    public Page<Product> getAllProducts(String category, List<String> colors, List<String> sizes, Integer minPrice, Integer maxPrice, Integer minDiscount, Integer sort, String stock, Integer pageNumber, Integer pageSize) {
+        Pageable pageable= PageRequest.of(pageNumber,pageSize);
+        List<Product>products=productRepository.filterProducts(category,minPrice,maxPrice,minDiscount,sort);
+        if(!colors.isEmpty()){
+            products=products.stream().filter(p->colors.stream().anyMatch(c->c.equalsIgnoreCase(p.getColor())))
+                    .collect(Collectors.toList());
+        }
+        if(stock!=null){
+            if(stock.equals("in_stock")){
+                products=products.stream().filter(p->p.getQuantity()>0).collect(Collectors.toList());
+
+            }
+            else if(stock.equals("out_of_stock")){
+                products=products.stream().filter(p->p.getQuantity()>0).collect(Collectors.toList());
+            }
+        }
         return null;
     }
 }
