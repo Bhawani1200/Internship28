@@ -1,0 +1,8 @@
+package com.chaubisedhaka.Backend.repository;
+
+import com.chaubisedhaka.Backend.model.Cart;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CartRepository extends JpaRepository<Cart,Long> {
+
+}

@@ -4,9 +4,8 @@ import com.chaubisedhaka.Backend.exception.OrderException;
 import com.chaubisedhaka.Backend.model.Address;
 import com.chaubisedhaka.Backend.model.Order;
 import com.chaubisedhaka.Backend.model.User;
-import com.chaubisedhaka.Backend.repository.CategoryRepository;
-import com.chaubisedhaka.Backend.repository.ProductRepository;
-import com.chaubisedhaka.Backend.repository.UserRepository;
+
+import com.chaubisedhaka.Backend.repository.CartRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,11 +14,11 @@ import java.util.List;
 public class OrderServiceImplementation implements OrderService{
 
     private CartRepository cartRepository;
-    private CartItemService cartItemService;
+    private CartService cartItemService;
     private ProductService productService;
 
 
-    public OrderServiceImplementation(CartRepository cartRepository,CartItemService cartItemService,ProductService productService){
+    public OrderServiceImplementation(CartRepository cartRepository, CartService cartItemService, ProductService productService){
 
         this.cartRepository=cartRepository;
         this.cartItemService=cartItemService;

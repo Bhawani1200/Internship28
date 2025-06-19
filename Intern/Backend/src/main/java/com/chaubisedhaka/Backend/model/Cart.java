@@ -1,6 +1,10 @@
 package com.chaubisedhaka.Backend.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -30,4 +34,73 @@ public class Cart {
 
     private int discount;
 
+    public Cart(){
+
+    }
+
+    public Cart(Long id, User user, Set<CartItem> cartItems, double totalPrice, int totalItem, int totalDiscountedPrice, int discount) {
+        this.id = id;
+        this.user = user;
+        this.cartItems = cartItems;
+        this.totalPrice = totalPrice;
+        this.totalItem = totalItem;
+        this.totalDiscountedPrice = totalDiscountedPrice;
+        this.discount = discount;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public Set<CartItem> getCartItems() {
+        return cartItems;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public int getTotalItem() {
+        return totalItem;
+    }
+
+    public int getTotalDiscountedPrice() {
+        return totalDiscountedPrice;
+    }
+
+    public int getDiscount() {
+        return discount;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setCartItems(Set<CartItem> cartItems) {
+        this.cartItems = cartItems;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public void setTotalItem(int totalItem) {
+        this.totalItem = totalItem;
+    }
+
+    public void setTotalDiscountedPrice(int totalDiscountedPrice) {
+        this.totalDiscountedPrice = totalDiscountedPrice;
+    }
+
+    public void setDiscount(int discount) {
+        this.discount = discount;
+    }
 }
