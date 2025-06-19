@@ -5,7 +5,9 @@ import com.chaubisedhaka.Backend.model.Category;
 import com.chaubisedhaka.Backend.model.Product;
 import com.chaubisedhaka.Backend.repository.CategoryRepository;
 import com.chaubisedhaka.Backend.repository.ProductRepository;
+import com.chaubisedhaka.Backend.repository.UserRepository;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -21,7 +23,7 @@ public class ProductServiceImplementation implements ProductService {
     private UserService userService;
     private CategoryRepository categoryRepository;
 
-    public ProductServiceImplementation(ProductRepository productRepository,UserService userService,CategoryRepository categoryRepository){
+    public ProductServiceImplementation(ProductRepository productRepository, UserService userService, CategoryRepository categoryRepository, UserRepository userRepository){
         this.productRepository=productRepository;
         this.userService=userService;
         this.categoryRepository=categoryRepository;
@@ -108,8 +110,11 @@ public class ProductServiceImplementation implements ProductService {
         return List.of();
     }
 
+
+
+
     @Override
-    public Page<Product> getAllProducts(String category, List<String> colors, List<String> sizes, Integer minPrice, Integer maxPrice, Integer minDiscount, Integer sort, String stock, Integer pageNumber, Integer pageSize) {
+    public Page<Product> getAllProducts(String category, List<String> colors, List<String> sizes, Integer minPrice, Integer maxPrice, Integer minDiscount, String sort, String stock, Integer pageNumber, Integer pageSize) {
         Pageable pageable= PageRequest.of(pageNumber,pageSize);
         List<Product>products=productRepository.filterProducts(category,minPrice,maxPrice,minDiscount,sort);
         if(!colors.isEmpty()){
@@ -125,6 +130,12 @@ public class ProductServiceImplementation implements ProductService {
                 products=products.stream().filter(p->p.getQuantity()>0).collect(Collectors.toList());
             }
         }
-        return null;
+        int startIndex=(int)pageable.getOffset();
+        int endIndex=Math.min(startIndex+pageable.getPageSize(),products.size());
+
+        List<Product>pageContent=products.subList(startIndex,endIndex);
+
+        Page<Product>filterProducts=new PageImpl<>(pageContent,pageable,products.size());
+        return filterProducts;
     }
 }

@@ -5,9 +5,11 @@ import com.chaubisedhaka.Backend.exception.UserException;
 import com.chaubisedhaka.Backend.model.User;
 import com.chaubisedhaka.Backend.repository.UserRepository;
 import jdk.jshell.spi.ExecutionControl;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class UserServiceImplementation implements UserService{
 
     private UserRepository userRepository;
