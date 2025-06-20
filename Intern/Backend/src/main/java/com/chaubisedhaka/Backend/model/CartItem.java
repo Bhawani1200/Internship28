@@ -8,10 +8,12 @@ public class CartItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @id
+
     @ManyToOne
     private Cart cart;
 
+
+    @ManyToOne
     private Product product;
 
     private String size;
@@ -24,7 +26,7 @@ public class CartItem {
 
     private Long userId;
 
-    private CartItem(){
+    public CartItem(){
 
     }
 

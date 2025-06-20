@@ -1,8 +1,6 @@
 package com.chaubisedhaka.Backend.model;
 
-import jakarta.persistence.Entity;
 
-@Entity
 public class PaymentDetails {
 
     private String paymentMethod;
