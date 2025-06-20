@@ -2,10 +2,18 @@ package com.chaubisedhaka.Backend.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,59 +30,7 @@ public class Review {
     @JoinColumn(name="user_id")
     private User user;
 
-
     private LocalDateTime createdAt;
 
-    public Review(){
 
-    }
-
-
-    public Review(Long id, String review, Product product, User user, LocalDateTime createdAt) {
-        this.id = id;
-        this.review = review;
-        this.product = product;
-        this.user = user;
-        this.createdAt = createdAt;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getReview() {
-        return review;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setReview(String review) {
-        this.review = review;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
 }
