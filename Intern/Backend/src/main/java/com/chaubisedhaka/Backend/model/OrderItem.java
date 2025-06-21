@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class OrderItem {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @ManyToOne
