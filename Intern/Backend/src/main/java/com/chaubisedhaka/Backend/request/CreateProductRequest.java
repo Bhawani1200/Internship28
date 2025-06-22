@@ -23,6 +23,11 @@ public class CreateProductRequest {
 
     private int discountedPrice;
 
+    private int discountPersent;
+
+    private String imageUrl;
+
+
     private int quantity;
 
     private String brand;
@@ -34,7 +39,6 @@ public class CreateProductRequest {
     private String topLevelCategory;
     private String secondLevelCategory;
     private String thirdLevelCategory;
-
 
 
 }

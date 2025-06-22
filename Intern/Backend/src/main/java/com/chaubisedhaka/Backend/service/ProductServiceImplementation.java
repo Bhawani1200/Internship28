@@ -6,6 +6,7 @@ import com.chaubisedhaka.Backend.model.Product;
 import com.chaubisedhaka.Backend.repository.CategoryRepository;
 import com.chaubisedhaka.Backend.repository.ProductRepository;
 import com.chaubisedhaka.Backend.repository.UserRepository;
+import com.chaubisedhaka.Backend.request.CreateProductRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -30,7 +31,7 @@ public class ProductServiceImplementation implements ProductService {
     }
 
     @Override
-    public Product createProduct(createProductRequest req) {
+    public Product createProduct(CreateProductRequest req) {
         Category topLevel = categoryRepository.findByName(req.getTopLevelCategory());
         if (topLevel == null) {
             Category topLevelCategory = new Category();
@@ -138,4 +139,10 @@ public class ProductServiceImplementation implements ProductService {
         Page<Product>filterProducts=new PageImpl<>(pageContent,pageable,products.size());
         return filterProducts;
     }
+
+    @Override
+    public List<Product> findAllProducts() {
+        return productRepository.findAll();
+    }
+
 }
