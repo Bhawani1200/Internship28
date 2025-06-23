@@ -55,8 +55,8 @@ public class CartItemServiceImplementation implements CartItemService{
     }
 
     @Override
-    public void removeCartItem(Long userId, Long cartItemId) throws CartItemException, ExecutionControl.UserException {
-     CartItem cartItem=findCartItemById(cartItemId);
+    public void removeCartItem(Long userId, Long cartItemId, String jwt) throws CartItemException, ExecutionControl.UserException {
+        CartItem cartItem=findCartItemById(cartItemId);
      User user=userService.findUserById(cartItem.getUserId());
      User reqUser=userService.findUserById(userId);
      if(user.getId().equals(reqUser.getId())){
@@ -64,7 +64,10 @@ public class CartItemServiceImplementation implements CartItemService{
      }else{
          throw new UserException("You cannot remove another user's item");
      }
+
     }
+
+
 
     @Override
     public CartItem findCartItemById(Long cartItemId) throws CartItemException {
