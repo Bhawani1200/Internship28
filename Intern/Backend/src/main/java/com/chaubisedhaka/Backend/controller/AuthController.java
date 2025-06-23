@@ -2,8 +2,10 @@ package com.chaubisedhaka.Backend.controller;
 
 import com.chaubisedhaka.Backend.config.JwtProvider;
 import com.chaubisedhaka.Backend.exception.UserException;
+import com.chaubisedhaka.Backend.model.Cart;
 import com.chaubisedhaka.Backend.model.User;
 import com.chaubisedhaka.Backend.repository.UserRepository;
+import com.chaubisedhaka.Backend.service.CartService;
 import com.chaubisedhaka.Backend.service.CustomUserServiceImplementation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,12 +28,14 @@ public class AuthController {
     private JwtProvider jwtProvider;
     private PasswordEncoder passwordEncoder;
     private CustomUserServiceImplementation customUserServiceImplementation;
+    private CartService cartService;
 
-    public AuthController(UserRepository userRepository,CustomUserServiceImplementation customUserServiceImplementation,PasswordEncoder passwordEncoder,JwtProvider jwtProvider){
+    public AuthController(UserRepository userRepository,CustomUserServiceImplementation customUserServiceImplementation,PasswordEncoder passwordEncoder,JwtProvider jwtProvider,CartService cartService){
         this.userRepository= userRepository;
         this.customUserServiceImplementation=customUserServiceImplementation;
         this.passwordEncoder=passwordEncoder;
         this.jwtProvider = jwtProvider;
+        this.cartService=cartService;
     }
 
     @PostMapping("/signup")
@@ -53,6 +57,7 @@ public class AuthController {
         createdUser.setFirstName(firstName);
         createdUser.setLastName(lastName);
         User savedUser=userRepository.save(createdUser);
+        Cart cart=cartService.createCart(savedUser);
 
         Authentication authentication=new UsernamePasswordAuthenticationToken(savedUser.getEmail(),savedUser.getPassword());
         SecurityContextHolder.getContext().setAuthentication(authentication);

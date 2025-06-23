@@ -8,8 +8,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+
 public interface RatingService {
+
     public Rating createRating(RatingRequest req, User user)throws ProductException;
 
     public List<Rating> getProducts(Long productId);

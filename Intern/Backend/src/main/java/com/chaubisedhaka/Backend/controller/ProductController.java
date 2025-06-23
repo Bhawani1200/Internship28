@@ -3,6 +3,7 @@ package com.chaubisedhaka.Backend.controller;
 import com.chaubisedhaka.Backend.exception.ProductException;
 import com.chaubisedhaka.Backend.model.Product;
 import com.chaubisedhaka.Backend.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,8 +12,10 @@ import org.springframework.data.domain.Page;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/products")
+@RequestMapping("/api")
 public class ProductController {
+
+    @Autowired
     private ProductService productService;
 
     @GetMapping("/products")

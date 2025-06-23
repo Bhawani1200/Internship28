@@ -6,10 +6,12 @@ import com.chaubisedhaka.Backend.model.Rating;
 import com.chaubisedhaka.Backend.model.User;
 import com.chaubisedhaka.Backend.repository.RatingRepository;
 import com.chaubisedhaka.Backend.request.RatingRequest;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Service
 public class RatingServiceImplementation implements RatingService{
     private RatingRepository ratingRepository;
     private ProductService productService;
