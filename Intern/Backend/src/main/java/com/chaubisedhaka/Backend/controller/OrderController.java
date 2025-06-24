@@ -25,7 +25,7 @@ public class OrderController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/create")
+    @PostMapping("/")
     public ResponseEntity<Order>createOrder(@RequestBody Address shippingAddress, @RequestHeader("Authorization")String jwt) throws UserException, ExecutionControl.UserException {
         User user=userService.findUserProfileByJwt(jwt);
 

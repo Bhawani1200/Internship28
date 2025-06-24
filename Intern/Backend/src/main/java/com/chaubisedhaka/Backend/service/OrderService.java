@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface OrderService {
 
+
     public Order createOrder(User user, Address shippingAddress);
 
     public Order findOrderById(Long orderId) throws OrderException;
@@ -15,6 +16,8 @@ public interface OrderService {
     public List<Order>userOrderHistory(Long userId);
 
     public Order confirmOrder(Long orderId) throws OrderException;
+
+    public Order placedOrder(Long orderId) throws OrderException;
 
     public Order shippedOrder(Long orderId) throws OrderException;
 
