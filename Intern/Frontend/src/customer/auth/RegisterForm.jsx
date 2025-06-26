@@ -1,12 +1,29 @@
+import React, { useEffect } from "react";
 import { Button } from "@mui/material";
-import React from "react";
-import {  useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { getUser, register } from "../../State/Auth/Action";
 
 const RegisterForm = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const jwt = localStorage.getItem("jwt");
+  const auth = useSelector((state) => state.auth);
+  // useEffect(
+  //   {
+  //     if(jwt) {
+  //       dispatch(getUser());
+  //     }
+  //   },
+  //   [jwt, auth.jwt]
+  // );
+  useEffect(() => {
+    if (jwt) {
+      dispatch(getUser());
+    }
+  }, [jwt, auth?.jwt, dispatch]);
 
   const handleSubmit = (e) => {
-
     e.preventDefault();
     const data = new FormData(e.currentTarget);
     const userData = {
@@ -15,10 +32,10 @@ const RegisterForm = () => {
       email: data.get("email"),
       password: data.get("password"),
     };
+    dispatch(register(userData));
     console.log("UserData:", userData);
   };
 
-  
   return (
     <div>
       <div className="max-w-lg mx-auto  bg-white dark:bg-gray-800 rounded-lg shadow-md px-8 py-10 flex flex-col items-center">
@@ -88,7 +105,6 @@ const RegisterForm = () => {
           <button
             type="submit"
             className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md shadow-sm"
-            
           >
             Register
           </button>
@@ -97,12 +113,14 @@ const RegisterForm = () => {
           <span className="text-sm text-gray-500 dark:text-gray-300">
             Already have an account?{" "}
           </span>
-          <Button onClick={()=>navigate("/login")} className="text-blue-500 hover:text-blue-600">
+          <Button
+            onClick={() => navigate("/login")}
+            className="text-blue-500 hover:text-blue-600"
+          >
             Login
           </Button>
         </div>
       </div>
-      
     </div>
   );
 };
