@@ -20,10 +20,9 @@ export default function Navigation() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
-  const [openAuthModal,setOpenAuthModal] = useState(false);
+  const [openAuthModal, setOpenAuthModal] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const openUserMenu = Boolean(anchorEl);
-
 
   const handleUserClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -36,6 +35,7 @@ export default function Navigation() {
   const handleOpen = () => {
     setOpenAuthModal(true);
   };
+ 
 
   const handleClose = () => {
     setOpenAuthModal(false);
@@ -370,7 +370,7 @@ export default function Navigation() {
 
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  {true ? (
+                  {false ? (
                     <div>
                       <Avatar
                         className="text-white"
@@ -378,14 +378,13 @@ export default function Navigation() {
                         aria-controls={open ? "basic-menu" : undefined}
                         aria-haspopup="true"
                         aria-expanded={open ? "true" : undefined}
-                        // onClick={handleUserClick}
                         sx={{
-                          //   bgcolor: deepPurple[500],
                           color: "white",
                           cursor: "pointer",
                         }}
                       >
-                        C{/* {auth.user?.firstName[0].toUpperCase()} */}
+                        C
+                        {/* {auth.user?.firstName[0].toUpperCase()} */}
                       </Avatar>
 
                       <Menu
@@ -449,7 +448,7 @@ export default function Navigation() {
           </div>
         </nav>
       </header>
-      <AuthModel handleclose={handleClose} open={openAuthModal}/>
+      <AuthModel handleClose={handleClose} open={openAuthModal} />
     </div>
   );
 }

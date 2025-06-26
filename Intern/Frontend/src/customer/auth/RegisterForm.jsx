@@ -4,8 +4,8 @@ import {  useNavigate } from "react-router-dom";
 
 const RegisterForm = () => {
   const navigate=useNavigate();
-  const handleSubmit = (e) => {
 
+  const handleSubmit = (e) => {
 
     e.preventDefault();
     const data = new FormData(e.currentTarget);
@@ -17,6 +17,8 @@ const RegisterForm = () => {
     };
     console.log("UserData:", userData);
   };
+
+  
   return (
     <div>
       <div className="max-w-lg mx-auto  bg-white dark:bg-gray-800 rounded-lg shadow-md px-8 py-10 flex flex-col items-center">

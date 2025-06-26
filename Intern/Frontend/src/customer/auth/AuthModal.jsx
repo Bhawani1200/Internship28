@@ -1,9 +1,9 @@
-/* eslint-disable no-undef */
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Modal from "@mui/material/Modal";
 import React from "react";
-import Register from "./RegisterForm";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+import LoginForm from "./LoginForm";
+import RegisterForm from "./RegisterForm";
+import { useLocation } from "react-router-dom";
 const style = {
   position: "absolute",
   top: "50%",
@@ -11,19 +11,14 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: 500,
   bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
   outline: "none",
+  boxShadow: 24,
   p: 4,
 };
-
-const AuthModal = () => {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+const AuthModal = ({ handleClose, open }) => {
+  const location = useLocation();
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -31,7 +26,7 @@ const AuthModal = () => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Register />
+          {location.pathname === "/login" ? <LoginForm /> : <RegisterForm />}
         </Box>
       </Modal>
     </div>

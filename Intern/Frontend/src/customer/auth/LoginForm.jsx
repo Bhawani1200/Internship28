@@ -1,18 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
+import { useLocation } from "react-router-dom";
 
 const LoginForm = () => {
-    const handleSubmit=()=>{
+  const navigate = useLocation();
 
-    }
   return (
     <div>
       <div className="max-w-lg mx-auto  bg-white dark:bg-gray-800 rounded-lg shadow-md px-8 py-10 flex flex-col items-center">
-        <form
-          action="#"
-          className="w-full flex flex-col gap-4"
-          onSubmit={handleSubmit}
-        >
+        <form action="#" className="w-full flex flex-col gap-4">
           <div className="flex items-start flex-col justify-start">
             <label
               htmlFor="email"
@@ -51,11 +47,14 @@ const LoginForm = () => {
         </form>
         <div className="mt-4 text-center">
           <span className="text-sm text-gray-500 dark:text-gray-300">
-            Already have an account?{" "}
+            If you don't have an account{" "}
           </span>
-          <Link href="#" className="text-blue-500 hover:text-blue-600">
-            Login
-          </Link>
+          <Button
+            onClick={() => navigate("/register")}
+            className="text-blue-500 hover:text-blue-600"
+          >
+            Register
+          </Button>
         </div>
       </div>
     </div>
