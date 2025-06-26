@@ -1,14 +1,32 @@
 import React from "react";
 import { Button } from "@mui/material";
 import { useLocation } from "react-router-dom";
+import {  login } from "../../State/Auth/Action";
+import { useDispatch } from "react-redux";
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
   const navigate = useLocation();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    const userData = {
+      email: data.get("email"),
+      password: data.get("password"),
+    };
+    dispatch(login(userData));
+    console.log("userData", userData);
+  };
 
   return (
     <div>
       <div className="max-w-lg mx-auto  bg-white dark:bg-gray-800 rounded-lg shadow-md px-8 py-10 flex flex-col items-center">
-        <form action="#" className="w-full flex flex-col gap-4">
+        <form
+          action="#"
+          className="w-full flex flex-col gap-4"
+          onSubmit={handleSubmit}
+        >
           <div className="flex items-start flex-col justify-start">
             <label
               htmlFor="email"

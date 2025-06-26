@@ -8,20 +8,14 @@ const RegisterForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const jwt = localStorage.getItem("jwt");
-  const auth = useSelector((state) => state.auth);
-  // useEffect(
-  //   {
-  //     if(jwt) {
-  //       dispatch(getUser());
-  //     }
-  //   },
-  //   [jwt, auth.jwt]
-  // );
+  const { auth } = useSelector(store => store);
+
+
   useEffect(() => {
     if (jwt) {
-      dispatch(getUser());
+      dispatch(getUser(jwt));
     }
-  }, [jwt, auth?.jwt, dispatch]);
+  }, [jwt, auth.jwt, dispatch]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

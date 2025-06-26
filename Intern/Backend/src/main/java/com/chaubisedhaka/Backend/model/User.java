@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +33,7 @@ public class User {
     private String role;
 
     private String mobile;
+
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
     private List<Address>address=new ArrayList();
