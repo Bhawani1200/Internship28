@@ -14,23 +14,31 @@ import { Avatar, Button, Menu, MenuItem } from "@mui/material";
 import { navigation } from "./navigationData";
 import { ClassNames } from "@emotion/react";
 import { useNavigate } from "react-router-dom";
+import AuthModel from "../../auth/AuthModal";
 
 export default function Navigation() {
   const [open, setOpen] = useState(false);
-  const [setOpenAuthModal] = useState(false);
+  const navigate = useNavigate();
+
+  const [openAuthModal,setOpenAuthModal] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const openUserMenu = Boolean(anchorEl);
 
-  const navigate = useNavigate();
+
   const handleUserClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleCloseUserMenu = (event) => {
     setAnchorEl(null);
   };
 
   const handleOpen = () => {
     setOpenAuthModal(true);
+  };
+
+  const handleClose = () => {
+    setOpenAuthModal(false);
   };
 
   const handleCategoryClick = (category, section, item, close) => {
@@ -441,6 +449,7 @@ export default function Navigation() {
           </div>
         </nav>
       </header>
+      <AuthModel handleclose={handleClose} open={openAuthModal}/>
     </div>
   );
 }
