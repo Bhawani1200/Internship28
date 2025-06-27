@@ -14,8 +14,6 @@ import {
   REGISTER_SUCCESS,
 } from "./ActionType";
 
-const token = localStorage.getItem("jwt");
-
 const registerRequest = () => ({ type: REGISTER_REQUEST });
 const registerSuccess = (user) => ({ type: REGISTER_SUCCESS, payload: user });
 const registerFailure = (error) => ({ type: REGISTER_FAILURE, payload: error });
@@ -31,7 +29,7 @@ const getUserFailure = (error) => ({ type: GET_USER_FAILURE, payload: error });
 export const register = (userData) => async (dispatch) => {
   dispatch(registerRequest);
   try {
-    const response = await axios.post(`${API_BASE_URL}/api/signup`, userData);
+    const response = await axios.post(`${API_BASE_URL}/auth/signup`, userData);
     const user = response.data;
     if (user.jwt) {
       localStorage.setItem("jwt", user.jwt);
@@ -46,7 +44,7 @@ export const register = (userData) => async (dispatch) => {
 export const login = (userData) => async (dispatch) => {
   dispatch(loginRequest);
   try {
-    const response = await axios.post(`${API_BASE_URL}/api/signin`, userData);
+    const response = await axios.post(`${API_BASE_URL}/auth/signin`, userData);
     const user = response.data;
     if (user.jwt) {
       localStorage.setItem("jwt", user.jwt);
@@ -58,12 +56,12 @@ export const login = (userData) => async (dispatch) => {
   }
 };
 
-export const getUser = () => async (dispatch) => {
+export const getUser = (jwt) => async (dispatch) => {
   dispatch(getUserRequest);
   try {
     const response = await axios.get(`${API_BASE_URL}/api/users/profile`, {
       headers: {
-        Authorization: `Bearer${token}`,
+        Authorization: `Bearer${jwt}`,
       },
     });
     const user = response.data;
@@ -76,4 +74,5 @@ export const getUser = () => async (dispatch) => {
 
 export const logout = () => (dispatch) => {
   dispatch({ type: LOGOUT, payload: null });
+  localStorage.clear();
 };
