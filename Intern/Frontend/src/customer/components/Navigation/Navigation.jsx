@@ -62,9 +62,9 @@ export default function Navigation() {
     if (auth.user) {
       handleClose();
     }
-    if (location.pathname === "/login" || location.pathname === "/register") {
-      navigate(-1);
-    }
+  if (auth.user && (location.pathname === "/login" || location.pathname === "/register")) {
+    navigate("/"); // or navigate(-1) if you'd prefer to go back
+  }
   }, [auth.user, location.pathname, navigate]);
 
   const handleLogout = () => {
@@ -409,7 +409,7 @@ export default function Navigation() {
                           cursor: "pointer",
                         }}
                       >
-                        {auth.user?.firstName[0].toUppercase()}
+                       {auth.user?.firstName[0].toUpperCase()} 
                       </Avatar>
 
                       <Menu
@@ -477,3 +477,4 @@ export default function Navigation() {
     </div>
   );
 }
+

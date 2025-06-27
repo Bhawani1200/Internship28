@@ -1,12 +1,12 @@
 import React from "react";
 import { Button } from "@mui/material";
-import { useLocation } from "react-router-dom";
-import {  login } from "../../State/Auth/Action";
+import { useNavigate } from "react-router-dom";
+import { login } from "../../State/Auth/Action";
 import { useDispatch } from "react-redux";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
-  const navigate = useLocation();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();

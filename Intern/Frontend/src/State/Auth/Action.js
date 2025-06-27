@@ -27,7 +27,7 @@ const getUserSuccess = (user) => ({ type: GET_USER_SUCCESS, payload: user });
 const getUserFailure = (error) => ({ type: GET_USER_FAILURE, payload: error });
 
 export const register = (userData) => async (dispatch) => {
-  dispatch(registerRequest);
+  dispatch(registerRequest());
   try {
     const response = await axios.post(`${API_BASE_URL}/auth/signup`, userData);
     const user = response.data;
@@ -42,7 +42,7 @@ export const register = (userData) => async (dispatch) => {
 };
 
 export const login = (userData) => async (dispatch) => {
-  dispatch(loginRequest);
+  dispatch(loginRequest());
   try {
     const response = await axios.post(`${API_BASE_URL}/auth/signin`, userData);
     const user = response.data;
@@ -57,11 +57,11 @@ export const login = (userData) => async (dispatch) => {
 };
 
 export const getUser = (jwt) => async (dispatch) => {
-  dispatch(getUserRequest);
+  dispatch(getUserRequest());
   try {
     const response = await axios.get(`${API_BASE_URL}/api/users/profile`, {
       headers: {
-        Authorization: `Bearer${jwt}`,
+        Authorization: `Bearer ${jwt}`,
       },
     });
     const user = response.data;
