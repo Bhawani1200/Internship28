@@ -16,7 +16,7 @@ import { ClassNames } from "@emotion/react";
 import { useLocation, useNavigate } from "react-router-dom";
 import AuthModel from "../../auth/AuthModal";
 import { useDispatch, useSelector } from "react-redux";
-import { getUser } from "../../../State/Auth/Action";
+import { getUser, logOut } from "../../../State/Auth/Action";
 
 export default function Navigation() {
   const [open, setOpen] = useState(false);
@@ -63,12 +63,13 @@ export default function Navigation() {
       handleClose();
     }
   if (auth.user && (location.pathname === "/login" || location.pathname === "/register")) {
-    navigate("/"); // or navigate(-1) if you'd prefer to go back
+    navigate("/"); 
   }
   }, [auth.user, location.pathname, navigate]);
 
   const handleLogout = () => {
-    dispatch(logout);
+    
+    dispatch(logOut());
     handleCloseUserMenu();
   };
 

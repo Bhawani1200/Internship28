@@ -72,7 +72,7 @@ export const getUser = (jwt) => async (dispatch) => {
   }
 };
 
-export const logout = () => (dispatch) => {
+export const logOut = () => (dispatch) => {
   dispatch({ type: LOGOUT, payload: null });
   localStorage.clear();
 };

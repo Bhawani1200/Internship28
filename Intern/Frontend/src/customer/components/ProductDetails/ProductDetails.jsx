@@ -18,7 +18,7 @@ const product = {
   ],
   images: [
     {
-      src: "https://scontent.fbir1-1.fna.fbcdn.net/v/t39.30808-6/494996818_1224341683036075_5322230787932981662_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=ijrn3W-GSF4Q7kNvwH2FZSo&_nc_oc=AdmHYCuqK2ATKYIMETqHpafFXYxEpZG7GZM9gImQDJRp7MeB_W1AbSvrFqxBE1GZRt7a8Q7wtoKX2WdlJIuwq0Bj&_nc_zt=23&_nc_ht=scontent.fbir1-1.fna&_nc_gid=fmXlMH6OA96623mlV7OfFg&oh=00_AfOhfgUBO1Eo_wbYH4hblzFxnUeGTb18T3VxzdsIpjBdDA&oe=684CB703",
+      src: "https://scontent.fbir1-1.fna.fbcdn.net/v/t39.30808-6/496842699_1234805838656326_5051657459047084550_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=ot2abBKeI0EQ7kNvwFrXA94&_nc_oc=AdncSdNvKGWGyJhsJf02dHjA6rNvWbJ1NheYR385azbTwXUgE7Kle7gYIgYY7E0WWcsIjfqY-eTjnz3WTn_mFeKB&_nc_zt=23&_nc_ht=scontent.fbir1-1.fna&_nc_gid=vibbqZrjEP1JQT1I5gxvjw&oh=00_AfPAYgd2QfU9UJj6KwV64x52IPZ4ri7CGHfWHUKWyezweQ&oe=68643651",
       alt: "Two each of gray, white, and black shirts laying flat.",
     },
     {
@@ -56,7 +56,7 @@ const product = {
   details:
     'The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming "Charcoal Gray" limited release.',
 };
-const reviews = { href: "#", average: 4, totalCount: 117 };
+// const reviews = { href: "#", average: 4, totalCount: 117 };
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -74,7 +74,7 @@ export default function ProductDetails() {
       <div className="pt-6">
         <nav aria-label="Breadcrumb">
           <ol
-            role="list"
+         
             className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8"
           >
             {product.breadcrumbs.map((breadcrumb) => (
@@ -249,7 +249,7 @@ export default function ProductDetails() {
                 </h3>
 
                 <div className="mt-4">
-                  <ul role="list" className="list-disc space-y-2 pl-4 text-sm">
+                  <ul  className="list-disc space-y-2 pl-4 text-sm">
                     {product.highlights.map((highlight) => (
                       <li key={highlight} className="text-gray-400">
                         <span className="text-gray-600">{highlight}</span>

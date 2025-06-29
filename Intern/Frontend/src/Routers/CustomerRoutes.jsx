@@ -22,7 +22,7 @@ const CustomerRoutes = () => {
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
         <Route
-          path="/:lavelOne/:lavelTwo:/lavelThree"
+          path="/:levelOne/:levelTwo/:levelThree"
           element={<Product />}
         ></Route>
         <Route path="/:product/:productId" element={<ProductDetails />}></Route>

@@ -2,6 +2,8 @@ import React from "react";
 import MainCarousel from "../../components/HomeCarousel/MainCarousel";
 import HomeSectionCarousel from "../../components/HomeSectionCarousel/HomeSectionCarousel";
 import { womenssaree } from "../../../Data/womensdress";
+import { mensdress } from "../../../Data/mensdress";
+import { newarrivals } from "../../../Data/newarrivals";
 
 const HomePage = () => {
   return (
@@ -9,8 +11,8 @@ const HomePage = () => {
       <MainCarousel />
       <div>
         <HomeSectionCarousel data={womenssaree} sectionName={"Womens Saree"}/>
-        <HomeSectionCarousel data={womenssaree} sectionName={"Mens Dress"}/>
-        <HomeSectionCarousel data={womenssaree} sectionName={"Childrens Dress"} />
+        <HomeSectionCarousel data={mensdress} sectionName={"Mens Dress"}/>
+        <HomeSectionCarousel data={newarrivals} sectionName={"New Arrivals"} />
       </div>
     </div>
   );
