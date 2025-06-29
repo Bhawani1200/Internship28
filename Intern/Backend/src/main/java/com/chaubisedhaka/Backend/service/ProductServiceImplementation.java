@@ -39,6 +39,7 @@ public class ProductServiceImplementation implements ProductService {
             topLevelCategory.setLevel(1);
             topLevel = categoryRepository.save(topLevelCategory);
 
+
         }
         Category secondLevel = categoryRepository.findByNameAndParent(req.getSecondLevelCategory(), topLevel.getName());
         Category secondLevelCategory=new Category();
@@ -59,6 +60,7 @@ public class ProductServiceImplementation implements ProductService {
 
             thirdLevel=categoryRepository.save(thirdLevelCategory);
         }
+
 
         Product product=new Product();
         product.setTitle(req.getTitle());
@@ -108,11 +110,9 @@ public class ProductServiceImplementation implements ProductService {
 
     @Override
     public List<Product> findProductByCategory(String category) {
+
         return List.of();
     }
-
-
-
 
     @Override
     public Page<Product> getAllProducts(String category, List<String> colors, List<String> sizes, Integer minPrice, Integer maxPrice, Integer minDiscount, String sort, String stock, Integer pageNumber, Integer pageSize) {
@@ -139,6 +139,8 @@ public class ProductServiceImplementation implements ProductService {
         Page<Product>filterProducts=new PageImpl<>(pageContent,pageable,products.size());
         return filterProducts;
     }
+
+
 
     @Override
     public List<Product> findAllProducts() {

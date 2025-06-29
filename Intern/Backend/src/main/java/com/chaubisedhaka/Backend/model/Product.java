@@ -35,37 +35,38 @@ public class Product {
     @Column(name="discount_price")
     private int discountedPrice;
 
-    @Column(name="quantity")
     private int quantity;
 
-    @Column(name="brand")
     private String brand;
 
-    @Column(name="color")
     private String color;
 
-    @Column(name="image_url")
+    @Column(name="image_url", length = 1000)
     private String imageUrl;
 
-    @Embedded
     @ElementCollection
-    @Column(name="sizes")
-    private Set<Size>sizes=new HashSet<>();
+    @CollectionTable(name = "product_sizes", joinColumns = @JoinColumn(name = "product_id"))
+    private Set<Size> sizes = new HashSet<>();
 
-    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL,orphanRemoval = true)
-    private List<Rating>rating=new ArrayList();
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Rating> rating = new ArrayList<>();
 
-    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL,orphanRemoval = true)
-    private List<Review>review=new ArrayList();
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Review> review = new ArrayList<>();
 
     @Column(name="num_ratings")
     private int numRatings;
 
-    @ManyToOne()
-    @JoinColumn(name="category_id")
+    @ManyToOne
+    @JoinColumn(name = "category_id")
     private Category category;
 
     private LocalDateTime createdAt;
 
 
 }
+
+
+
+
+

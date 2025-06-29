@@ -60,7 +60,7 @@ export default function Product() {
   const priceValue = searchParams.get("price");
   const discount = searchParams.get("discount");
   const sortValue = searchParams.get("sort");
-  const pageNumber = searchParams.get("page");
+  const pageNumber = searchParams.get("page") || 1;
   const stock = searchParams.get("stock");
 
   const handleFilter = (value, sectionId) => {
@@ -90,11 +90,11 @@ export default function Product() {
     navigate({ search: `?${query}` });
   };
 
-  const handlePaginationChange = (value) => {
+  const handlePaginationChange = (event,value) => {
     const searchParams = new URLSearchParams(location.search);
     searchParams.set("page", value);
     const query = searchParams.toString();
-    navigate(`search:${query}`);
+    navigate({ search: `?${query}` });
   };
   useEffect(() => {
     const [minPrice, maxPrice] =
