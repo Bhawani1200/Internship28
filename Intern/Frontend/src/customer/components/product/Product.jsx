@@ -22,7 +22,6 @@ import {
   PlusIcon,
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
-import { womenssaree } from "../../../Data/womensdress";
 import ProductCard from "./ProductCard";
 import { filters, singleFilter } from "./FilterData";
 import FilterListIcon from "@mui/icons-material/FilterList";
@@ -36,6 +35,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { findProducts } from "../../../State/Product/Action";
 import Pagination from "@mui/material/Pagination";
+import { daura_suruwal } from "../../../Data/Men/Dauraa_suruwal";
 const sortOptions = [
   { name: "Price: Low to High", href: "#", current: false },
   { name: "Price: High to Low", href: "#", current: false },
@@ -46,12 +46,13 @@ function classNames(...classes) {
 }
 
 export default function Product() {
+  const [singleFilterSelections, setSingleFilterSelections] = useState({});
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const param = useParams();
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { product } = useSelector((store) => store);
+  const { products } = useSelector((store) => store);
 
   const decodedQueryString = decodeURIComponent(location.search);
   const searchParams = new URLSearchParams(decodedQueryString);
@@ -62,7 +63,6 @@ export default function Product() {
   const sortValue = searchParams.get("sort");
   const pageNumber = searchParams.get("page") || 1;
   const stock = searchParams.get("stock");
-
   const handleFilter = (value, sectionId) => {
     const searchParams = new URLSearchParams(location.search);
 
@@ -83,14 +83,29 @@ export default function Product() {
     navigate({ search: `?${query}` });
   };
 
-  const handleRadioFilterChange = (e, sectionId) => {
+ 
+  const handleRadioFilterChange = (value, sectionId) => {
     const searchParams = new URLSearchParams(location.search);
-    searchParams.set(sectionId, e.target.value);
-    const query = searchParams.toString();
-    navigate({ search: `?${query}` });
+    const currentValue = singleFilterSelections[sectionId];
+
+    if (currentValue === value) {
+      searchParams.delete(sectionId);
+      setSingleFilterSelections((prev) => ({
+        ...prev,
+        [sectionId]: null,
+      }));
+    } else {
+      searchParams.set(sectionId, value);
+      setSingleFilterSelections((prev) => ({
+        ...prev,
+        [sectionId]: value,
+      }));
+    }
+
+    navigate({ search: `?${searchParams.toString()}` });
   };
 
-  const handlePaginationChange = (event,value) => {
+  const handlePaginationChange = (event, value) => {
     const searchParams = new URLSearchParams(location.search);
     searchParams.set("page", value);
     const query = searchParams.toString();
@@ -98,7 +113,7 @@ export default function Product() {
   };
   useEffect(() => {
     const [minPrice, maxPrice] =
-      priceValue === null ? [0, 0] : priceValue.split("-").map(Number);
+      priceValue === null ? [0, 10000] : priceValue.split("-").map(Number);
     const data = {
       category: param.levelThree,
       colors: colorValue || [],
@@ -106,9 +121,10 @@ export default function Product() {
       minPrice,
       maxPrice,
       minDiscount: discount || 0,
-      sortValue: sortValue || "price_asc",
       pageNumber: pageNumber - 1,
       pageSize: 10,
+
+      sortValue: sortValue || "price_low",
       stock: stock,
     };
     dispatch(findProducts(data));
@@ -380,6 +396,7 @@ export default function Product() {
                     </DisclosurePanel>
                   </Disclosure>
                 ))}
+
                 {singleFilter.map((section) => (
                   <Disclosure
                     key={section.id}
@@ -389,10 +406,7 @@ export default function Product() {
                     <>
                       <h3 className="-my-3 flow-root">
                         <DisclosureButton className="group flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
-                          <FormLabel
-                            sx={{ color: "black" }}
-                            id="demo-radio-buttons-group-label"
-                          >
+                          <FormLabel sx={{ color: "black" }}>
                             {section.name}
                           </FormLabel>
                           <span className="ml-6 flex items-center">
@@ -410,22 +424,27 @@ export default function Product() {
                       <DisclosurePanel className="pt-6">
                         <div className="space-y-4">
                           <FormControl>
-                            <RadioGroup
-                              aria-labelledby="demo-radio-buttons-group-label"
-                              defaultValue="female"
-                              name="radio-buttons-group"
-                            >
-                              {section.options.map((option, optionIdx) => (
-                                <>
-                                  <FormControlLabel
-                                    onChange={(e) =>
-                                      handleRadioFilterChange(e, section.id)
-                                    }
-                                    value={option.value}
-                                    control={<Radio />}
-                                    label={option.label}
-                                  />
-                                </>
+                            <RadioGroup name={`radio-group-${section.id}`}>
+                              {section.options.map((option) => (
+                                <FormControlLabel
+                                  key={option.value}
+                                  value={option.value}
+                                  control={
+                                    <Radio
+                                      checked={
+                                        singleFilterSelections[section.id] ===
+                                        option.value
+                                      }
+                                      onClick={() =>
+                                        handleRadioFilterChange(
+                                          option.value,
+                                          section.id
+                                        )
+                                      }
+                                    />
+                                  }
+                                  label={option.label}
+                                />
                               ))}
                             </RadioGroup>
                           </FormControl>
@@ -437,10 +456,17 @@ export default function Product() {
               </form>
             </div>
             {/* Product grid */}
+            {/* <div className="lg:col-span-4 w-full">
+              <div className="flex flex-wrap justify-center bg-white py-5">
+                {products.products &&
+                  products.products?.content?.map((item) => (
+                    <ProductCard product={item} key={item.id} />
+                  ))}
+              </div>
+            </div> */}
             <div className="lg:col-span-4 w-full">
               <div className="flex flex-wrap justify-center bg-white py-5">
-                {product.products &&
-                  product.products?.content?.map((item) => (
+                {daura_suruwal.map((item) => (
                     <ProductCard product={item} key={item.id} />
                   ))}
               </div>
@@ -450,10 +476,11 @@ export default function Product() {
         <section className="w-full px=[3.6rem]">
           <div className="flex px-4 py-5 justify-center">
             <Pagination
-              count={product.products?.totalPages}
+              count={products.products?.totalPages}
               color="secondary"
               onChange={handlePaginationChange}
             />
+       
           </div>
         </section>
       </main>

@@ -26,7 +26,7 @@ export const daura_suruwal = [
       "https://scontent.fbir1-1.fna.fbcdn.net/v/t39.30808-6/490743127_1208189081318002_6339139817925678183_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_ohc=dFN78AyMmmcQ7kNvwHkxNVO&_nc_oc=AdkF3ZLvc0rac-bt-88ai74thA2bbe3_W76ytzlJcOt67EiOnIe9H8Du6fvKm23HzO7UN8f9cZyr3ZMRGJRl5gcR&_nc_zt=23&_nc_ht=scontent.fbir1-1.fna&_nc_gid=u3nhaUekj836MM-qS1vz4g&oh=00_AfOnHpDirH8ytYoBLcW24E9HXxLTmkPgUCnVsugM0rblOQ&oe=6865445B",
     brand: "KHANGCHEN COLLECTION",
     title: "Khangchen Cotton Formal Daura Set",
-    color: "Black",
+    color: "White",
     discountedPrice: 1299,
     price: 2799,
     discountPersent: 54,

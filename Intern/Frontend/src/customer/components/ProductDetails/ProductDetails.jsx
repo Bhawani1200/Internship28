@@ -1,12 +1,13 @@
-"use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Radio, RadioGroup } from "@headlessui/react";
 import { Box, Button, Grid, LinearProgress, Rating } from "@mui/material";
 import ProductReviewCard from "./ProductReviewCard";
 import { womenssaree } from "../../../Data/womensdress";
 import HomeSectionCard from "../../HomeSectionCard/HomeSectionCard";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { findProductsById } from "../../../State/Product/Action";
 
 const product = {
   name: "Basic Tee 6-Pack",
@@ -63,20 +64,29 @@ function classNames(...classes) {
 }
 
 export default function ProductDetails() {
-  const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
+  const [selectedSize, setSelectedSize] = useState("");
   const navigate = useNavigate();
+  const params = useParams();
+  const dispatch = useDispatch();
+  const { products } = useSelector((store) => store);
+
   const handleAddToCart = () => {
+    const data = { productId: params.productId };
+    dispatch(findProductsById(data));
     navigate("/cart");
   };
+useEffect(() => {
+  if (params.productId) {
+    dispatch(findProductsById(params.productId));
+  }
+}, [params.productId, dispatch]);
+
 
   return (
     <div className="bg-white lg:px-20">
       <div className="pt-6">
         <nav aria-label="Breadcrumb">
-          <ol
-         
-            className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8"
-          >
+          <ol className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
             {product.breadcrumbs.map((breadcrumb) => (
               <li key={breadcrumb.id}>
                 <div className="flex items-center">
@@ -115,7 +125,7 @@ export default function ProductDetails() {
           <div className="flex flex-col items-center">
             <img
               alt={product.images[0].alt}
-              src={product.images[0].src}
+              src={products.product?.imageUrl}
               className="overflow-hidden rounded-lg max-w-[30rem] max-h-[35rem]"
             />
             <div className="flex flex-wrap space-x-5 justify-center mt-4">
@@ -133,12 +143,12 @@ export default function ProductDetails() {
             <div className="lg:col-span-2 ">
               <h className="text-lg lg:text-xl font-semibold text-gray-900">
                 {/* {product.name} */}
-                Purbeli Dhaka
+                {products.product?.brand}
               </h>
 
               <h1 className="text-lg lg:text-xl text-gray-900 opacity-60 pt-1">
                 {" "}
-                Casual Puff Sleeves Solid Womens saree
+                {products.product?.title}
               </h1>
             </div>
 
@@ -146,9 +156,15 @@ export default function ProductDetails() {
             <div className="mt-4 lg:row-span-3 lg:mt-0">
               <h2 className="sr-only">Product information</h2>
               <div className="flex space-x-5 items-center text-lg lg:text-xl text-gray-900 mt-6">
-                <p className="font-semibold">रू3000</p>
-                <p className="opacity-50 line-through">रू3500</p>
-                <p className="text-green-600 font-semibold">5%Off</p>
+                <p className="font-semibold">
+                  {products.product?.discountedPrice}
+                </p>
+                <p className="opacity-50 line-through">
+                  {products.product?.price}
+                </p>
+                <p className="text-green-600 font-semibold">
+                  {products.product?.discountedPersent}%off
+                </p>
               </div>
 
               {/* Reviews */}
@@ -221,7 +237,7 @@ export default function ProductDetails() {
 
                 <div className="mt-2">
                   <Button
-                    onClick={() => handleAddToCart}
+                    onClick={ handleAddToCart}
                     variant="contained"
                     sx={{ px: "2rem", py: "1rem", bgcolor: "#9155fd" }}
                   >
@@ -249,7 +265,7 @@ export default function ProductDetails() {
                 </h3>
 
                 <div className="mt-4">
-                  <ul  className="list-disc space-y-2 pl-4 text-sm">
+                  <ul className="list-disc space-y-2 pl-4 text-sm">
                     {product.highlights.map((highlight) => (
                       <li key={highlight} className="text-gray-400">
                         <span className="text-gray-600">{highlight}</span>

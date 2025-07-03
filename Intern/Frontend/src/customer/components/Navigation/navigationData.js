@@ -82,14 +82,12 @@ export const navigation = {
             id: 'clothing',
             name: 'Clothing',
             items: [
-              { name: 'Mens Kurtas', id: 'mens_kurta' },
-              { name: 'Shirt', id: 'shirt' },
-              { name: 'Men Jeans', id: 'men_jeans' },
-              { name: 'Sweaters', id: '#' },
-              { name: 'T-Shirts', id: 't-shirt' },
-              { name: 'Jackets', id: '#' },
-              { name: 'Activewear', id: '#' },
-              
+              { name: 'Mens Daura', id: 'mens_daura' },
+              { name: 'Mens Ornaments', id: 'Mens_ornaments' },
+              { name: 'DhakaCoat', id: 'Dhaka_Coat' },
+              { name: 'DhakaTopi', id: 'Dhaka_Topi' },
+              { name: 'Marriage Dress', id: 'Marriage_Dress' },
+             
             ],
           },
           {
