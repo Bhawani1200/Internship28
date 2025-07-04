@@ -19,7 +19,7 @@ const product = {
   ],
   images: [
     {
-      src: "https://scontent.fbir1-1.fna.fbcdn.net/v/t39.30808-6/496842699_1234805838656326_5051657459047084550_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=ot2abBKeI0EQ7kNvwFrXA94&_nc_oc=AdncSdNvKGWGyJhsJf02dHjA6rNvWbJ1NheYR385azbTwXUgE7Kle7gYIgYY7E0WWcsIjfqY-eTjnz3WTn_mFeKB&_nc_zt=23&_nc_ht=scontent.fbir1-1.fna&_nc_gid=vibbqZrjEP1JQT1I5gxvjw&oh=00_AfPAYgd2QfU9UJj6KwV64x52IPZ4ri7CGHfWHUKWyezweQ&oe=68643651",
+      src: "https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg",
       alt: "Two each of gray, white, and black shirts laying flat.",
     },
     {
@@ -57,7 +57,6 @@ const product = {
   details:
     'The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming "Charcoal Gray" limited release.',
 };
-// const reviews = { href: "#", average: 4, totalCount: 117 };
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -125,7 +124,7 @@ useEffect(() => {
           <div className="flex flex-col items-center">
             <img
               alt={product.images[0].alt}
-              src={products.product?.imageUrl}
+              src={products.products?.imageUrl}
               className="overflow-hidden rounded-lg max-w-[30rem] max-h-[35rem]"
             />
             <div className="flex flex-wrap space-x-5 justify-center mt-4">

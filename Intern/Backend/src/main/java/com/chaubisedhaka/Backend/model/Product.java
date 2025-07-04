@@ -44,6 +44,7 @@ public class Product {
     @Column(name="image_url", length = 1000)
     private String imageUrl;
 
+
     @ElementCollection
     @CollectionTable(name = "product_sizes", joinColumns = @JoinColumn(name = "product_id"))
     private Set<Size> sizes = new HashSet<>();

@@ -9,8 +9,8 @@ import jdk.jshell.spi.ExecutionControl;
 
 public interface CartItemService {
     public CartItem createCartItem(CartItem cartItem);
-//
-//    public CartItem updateCartItem(Long userId,CartItem cartItem) throws CartItemException, UserException, ExecutionControl.UserException;
+
+    public CartItem updateCartItem(Long userId,CartItem cartItem) throws CartItemException, UserException, ExecutionControl.UserException;
 
     CartItem updateCartItem(Long userId, Long id, CartItem cartItem) throws CartItemException, UserException, ExecutionControl.UserException;
 

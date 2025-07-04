@@ -36,6 +36,19 @@ public class CartItemServiceImplementation implements CartItemService{
     }
 
     @Override
+    public CartItem updateCartItem(Long userId, CartItem cartItem) throws CartItemException, UserException, ExecutionControl.UserException {
+        CartItem item=findCartItemById(userId);
+        User user=userService.findUserById(item.getUserId());
+        if(user.getId().equals(userId)){
+            item.setQuantity(cartItem.getQuantity());
+            item.setPrice(item.getQuantity()*item.getProduct().getPrice());
+            item.setDiscountedPrice(item.getProduct().getDiscountedPrice()*item.getQuantity());
+
+        }
+        return cartItemRespository.save(item);
+    }
+
+    @Override
     public CartItem updateCartItem(Long userId, Long id, CartItem cartItem) throws CartItemException, UserException, ExecutionControl.UserException {
         CartItem item=findCartItemById(userId);
         User user=userService.findUserById(item.getUserId());
@@ -48,18 +61,6 @@ public class CartItemServiceImplementation implements CartItemService{
         return cartItemRespository.save(item);
     }
 
-//    @Override
-//    public CartItem updateCartItem(Long userId, Long id, CartItem cartItem) throws CartItemException, UserException, ExecutionControl.UserException {
-//        CartItem item=findCartItemById(id);
-//        User user=userService.findUserById(item.getUserId());
-//        if(user.getId().equals(userId)){
-//            item.setQuantity(cartItem.getQuantity());
-//            item.setPrice(item.getQuantity()*item.getProduct().getPrice());
-//            item.setDiscountedPrice(item.getProduct().getDiscountedPrice()*item.getQuantity());
-//
-//        }
-//        return cartItemRespository.save(item);
-//    }
 
 
 

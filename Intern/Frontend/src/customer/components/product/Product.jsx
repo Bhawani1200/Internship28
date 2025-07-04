@@ -83,7 +83,6 @@ export default function Product() {
     navigate({ search: `?${query}` });
   };
 
- 
   const handleRadioFilterChange = (value, sectionId) => {
     const searchParams = new URLSearchParams(location.search);
     const currentValue = singleFilterSelections[sectionId];
@@ -138,6 +137,7 @@ export default function Product() {
     pageNumber,
     stock,
   ]);
+
 
   return (
     <div>
@@ -471,6 +471,7 @@ export default function Product() {
                   ))}
               </div>
             </div>
+        
           </div>
         </section>
         <section className="w-full px=[3.6rem]">
@@ -480,7 +481,6 @@ export default function Product() {
               color="secondary"
               onChange={handlePaginationChange}
             />
-       
           </div>
         </section>
       </main>

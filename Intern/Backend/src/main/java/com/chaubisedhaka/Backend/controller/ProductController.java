@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Page;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -21,15 +22,16 @@ public class ProductController {
     @GetMapping("/products")
     public ResponseEntity<Page<Product>>findProductByCategoryHandler(
             @RequestParam String category,
-            @RequestParam(required = false) List<String>color,
-            @RequestParam(required = false) List<String>size,
+            @RequestParam List<String>color,
+            @RequestParam List<String>size,
             @RequestParam Integer minPrice,
             @RequestParam Integer maxPrice,
-            @RequestParam(required = false,defaultValue = "price_asc") String sort,
-            @RequestParam(required = false) String stock,
+            @RequestParam String sort,
+            @RequestParam String stock,
             @RequestParam Integer pageNumber,
             @RequestParam Integer minDiscount,
             @RequestParam Integer pageSize
+
     )
     {
         Page<Product>res=productService.getAllProducts( category, color, size, minPrice, maxPrice, minDiscount, sort, stock, pageNumber, pageSize);
@@ -41,10 +43,5 @@ public class ProductController {
 
 
 
-    @GetMapping("/products/id/{productId}")
-    public ResponseEntity<Product>findProductByIdHandler(@PathVariable Long productId)throws ProductException{
-        Product product=productService.findProductById(productId);
-        return new ResponseEntity<Product>(product,HttpStatus.ACCEPTED);
-    }
 
 }
