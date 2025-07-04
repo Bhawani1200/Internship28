@@ -13,6 +13,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -115,32 +116,60 @@ public class ProductServiceImplementation implements ProductService {
     }
 
     @Override
-    public Page<Product> getAllProducts(String category, List<String> colors, List<String> sizes, Integer minPrice, Integer maxPrice, Integer minDiscount, String sort, String stock, Integer pageNumber, Integer pageSize) {
+    public Page<Product> getAllProducts(String category, List<String> colors, List<String> sizes, Integer minPrice, Integer maxPrice, Integer minDiscount, String sort, String stock, Integer pageNumber, Integer pageSize) { {
 
+            // 1. Handle null parameters safely
+            colors = colors != null ? colors : Collections.emptyList();
+            sizes = sizes != null ? sizes : Collections.emptyList();
 
-        Pageable pageable= PageRequest.of(pageNumber,pageSize);
-        List<Product>products=productRepository.filterProducts(category,minPrice,maxPrice,minDiscount,sort);
-        if(!colors.isEmpty()){
-            products=products.stream().filter(p->colors.stream().anyMatch(c->c.equalsIgnoreCase(p.getColor())))
-                    .collect(Collectors.toList());
+            // 2. Move all filtering to repository level (avoids full table scan)
+            List<Product> products = productRepository.filterProducts(
+                    category,
+                    colors,
+                    sizes,
+                    minPrice != null ? minPrice : 0,
+                    maxPrice != null ? maxPrice : Integer.MAX_VALUE,
+                    minDiscount != null ? minDiscount : 0,
+                    sort,
+                    stock
+            );
+
+            // 3. Create pageable after getting results from optimized query
+            Pageable pageable = PageRequest.of(pageNumber, pageSize);
+            int startIndex = (int) pageable.getOffset();
+            int endIndex = Math.min(startIndex + pageable.getPageSize(), products.size());
+
+            List<Product> pageContent = products.subList(startIndex, endIndex);
+            return new PageImpl<>(pageContent, pageable, products.size());
         }
-        if(stock!=null){
-            if(stock.equals("in_stock")){
-                products=products.stream().filter(p->p.getQuantity()>0).collect(Collectors.toList());
-
-            }
-            else if(stock.equals("out_of_stock")){
-                products=products.stream().filter(p->p.getQuantity()>0).collect(Collectors.toList());
-            }
-        }
-        int startIndex=(int)pageable.getOffset();
-        int endIndex=Math.min(startIndex+pageable.getPageSize(),products.size());
-
-        List<Product>pageContent=products.subList(startIndex,endIndex);
-
-        Page<Product>filterProducts=new PageImpl<>(pageContent,pageable,products.size());
-        return filterProducts;
     }
+
+//    @Override
+//    public Page<Product> getAllProducts(String category, List<String> colors, List<String> sizes, Integer minPrice, Integer maxPrice, Integer minDiscount, String sort, String stock, Integer pageNumber, Integer pageSize) {
+//
+//        Pageable pageable= PageRequest.of(pageNumber,pageSize);
+//        List<Product>products=productRepository.filterProducts(category,minPrice,maxPrice,minDiscount,sort);
+//        if(!colors.isEmpty()){
+//            products=products.stream().filter(p->colors.stream().anyMatch(c->c.equalsIgnoreCase(p.getColor())))
+//                    .collect(Collectors.toList());
+//        }
+//        if(stock!=null){
+//            if(stock.equals("in_stock")){
+//                products=products.stream().filter(p->p.getQuantity()>0).collect(Collectors.toList());
+//
+//            }
+//            else if(stock.equals("out_of_stock")){
+//                products=products.stream().filter(p->p.getQuantity()>0).collect(Collectors.toList());
+//            }
+//        }
+//        int startIndex=(int)pageable.getOffset();
+//        int endIndex=Math.min(startIndex+pageable.getPageSize(),products.size());
+//
+//        List<Product>pageContent=products.subList(startIndex,endIndex);
+//
+//        Page<Product>filterProducts=new PageImpl<>(pageContent,pageable,products.size());
+//        return filterProducts;
+//    }
 
 
 
