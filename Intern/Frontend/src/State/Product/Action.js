@@ -36,6 +36,32 @@ export const findProducts = (reqData) => async (dispatch) => {
   }
 };
 
+//   dispatch({ type: FIND_PRODUCTS_REQUEST });
+  
+//   try {
+//     // Create cleaned parameters object
+//     const params = {
+//       color: reqData.colors || undefined,        // Omit if empty
+//       size: reqData.sizes || undefined,          // Omit if empty
+//       minPrice: reqData.minPrice,
+//       maxPrice: reqData.maxPrice,
+//       minDiscount: reqData.minDiscount,
+//       category: reqData.category || undefined,   // Omit if empty
+//       stock: reqData.stock ?? undefined,         // Omit if null/undefined
+//       sort: reqData.sort || undefined,           // Omit if empty
+//       pageNumber: reqData.pageNumber,
+//       pageSize: reqData.pageSize
+//     };
+
+//     // Make API call with cleaned params
+//     const { data } = await api.get(`/api/products`, { params });
+    
+//     console.log("Product data", data);
+//     dispatch({ type: FIND_PRODUCTS_SUCCESS, payload: data });
+//   } catch (error) {
+//     dispatch({ type: FIND_PRODUCTS_FAILURE, payload: error.message });
+//   }
+// };
 export const findProductsById = (reqData) => async (dispatch) => {
   dispatch({ type: FIND_PRODUCT_BY_ID_REQUEST });
   const { productId } = reqData;
