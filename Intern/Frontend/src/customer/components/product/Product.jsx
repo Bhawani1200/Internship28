@@ -35,7 +35,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { findProducts } from "../../../State/Product/Action";
 import Pagination from "@mui/material/Pagination";
-import { daura_suruwal } from "../../../Data/Men/Dauraa_suruwal";
+
 const sortOptions = [
   { name: "Price: Low to High", href: "#", current: false },
   { name: "Price: High to Low", href: "#", current: false },
@@ -122,7 +122,6 @@ export default function Product() {
       minDiscount: discount || 0,
       pageNumber: pageNumber - 1,
       pageSize: 10,
-
       sortValue: sortValue || "price_low",
       stock: stock,
     };
@@ -466,7 +465,7 @@ export default function Product() {
             </div> */}
             <div className="lg:col-span-4 w-full">
               <div className="flex flex-wrap justify-center bg-white py-5">
-                {daura_suruwal.map((item) => (
+                {products.products?.content.map((item) => (
                     <ProductCard product={item} key={item.id} />
                   ))}
               </div>

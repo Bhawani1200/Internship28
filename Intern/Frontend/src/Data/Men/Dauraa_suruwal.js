@@ -1,35 +1,32 @@
 export const daura_suruwal = [
   {
-    imageUrl:
-      "https://scontent.fbir1-1.fna.fbcdn.net/v/t39.30808-6/492551277_1219190176884559_5435069600472815517_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=w-n4QzKhi7IQ7kNvwFmoWao&_nc_oc=AdlSIGqSS4ABwgd4KJRF0UfSQAhLJKCaW0diL2h71Z1k9vrwSoq6q9RcmuJECd-IOh6yQ7oRrQL5M6jbfVG0SSs-&_nc_zt=23&_nc_ht=scontent.fbir1-1.fna&_nc_gid=G2V1hMVUuEtm_Q3Lh4rNHA&oh=00_AfOi2738KcMqhiysOGBq1r7oQIDZUOg7FUUdyn1gbVgGMA&oe=68653657",
-
+    imageUrl: "https://scontent.fbir1-1.fna.fbcdn.net/v/t39.30808-6/492551277_1219190176884559_5435069600472815517_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=KAIrn62-COAQ7kNvwEjh5RP&_nc_oc=AdmIy7GJib8G8u8OvZFE4DzZuLPhkDfV4w0Cn2YeoCeQ0hDpObOQ8a1OkGTbUv56qs7w6XLFIUTYZ5W55caUOERI&_nc_zt=23&_nc_ht=scontent.fbir1-1.fna&_nc_gid=JRX1Immiw9HvcKkt9zxJwg&oh=00_AfSfNfjNfprCnDodk54vKrAyNVyMWr17xuGTdBcYKurAGQ&oe=686EA917",
     brand: "YAKTHUNG ATTIRE",
     title: "Yakthung Heritage Traditional Daura Suruwal",
     color: "White",
-    discountedPrice: 1199,
-    price: 2499,
-    discountPersent: 52,
+    price: 4499,
+    discountPersent: 51,
+    discountedPrice: 2204,
     size: [
       { name: "S", quantity: 12 },
       { name: "M", quantity: 20 },
       { name: "L", quantity: 28 },
     ],
     quantity: 60,
-    topLevelCategory: "Men",
-    secondLevelCategory: "Clothing",
-    thirdLevelCategory: "mens_daura",
+    topLavelCategory: "Men",
+    secondLavelCategory: "Clothing",
+    thirdLavelCategory: "mens_daura",
     description:
       "This traditional white Daura Suruwal features a clean design with symbolic ties and elegant pleats.",
   },
   {
-    imageUrl:
-      "https://scontent.fbir1-1.fna.fbcdn.net/v/t39.30808-6/490743127_1208189081318002_6339139817925678183_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_ohc=dFN78AyMmmcQ7kNvwHkxNVO&_nc_oc=AdkF3ZLvc0rac-bt-88ai74thA2bbe3_W76ytzlJcOt67EiOnIe9H8Du6fvKm23HzO7UN8f9cZyr3ZMRGJRl5gcR&_nc_zt=23&_nc_ht=scontent.fbir1-1.fna&_nc_gid=u3nhaUekj836MM-qS1vz4g&oh=00_AfOnHpDirH8ytYoBLcW24E9HXxLTmkPgUCnVsugM0rblOQ&oe=6865445B",
+    imageUrl: "https://scontent.fbir1-1.fna.fbcdn.net/v/t39.30808-6/486569726_1191007513036159_5898075187586100511_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_ohc=aKxCqeQz1vQQ7kNvwEP9cju&_nc_oc=AdnBQUM-4UIR1IFpGi_6SHF1RmDl3ZEsVOdg8SxgH84hTKMubD1OYeKsv4h9AuvmQyB2BKs2ZRq5D_AHljburLBM&_nc_zt=23&_nc_ht=scontent.fbir1-1.fna&_nc_gid=uDpSgNP8P5wgXLZL1FeAQw&oh=00_AfRL_wGV9ZDcwtavOdgysJ816U6WjIbWdzdld4Ust6fFCA&oe=686E7D14",
     brand: "KHANGCHEN COLLECTION",
     title: "Khangchen Cotton Formal Daura Set",
     color: "White",
-    discountedPrice: 1299,
-    price: 2799,
-    discountPersent: 54,
+    price: 5299,
+    discountPersent: 56,
+    discountedPrice: 2332,
     size: [
       { name: "S", quantity: 10 },
       { name: "M", quantity: 15 },
@@ -43,14 +40,13 @@ export const daura_suruwal = [
       "A black Daura Suruwal set crafted from soft cotton blend, designed for both formal and festive cultural events.",
   },
   {
-    imageUrl:
-      "https://scontent.fbir1-1.fna.fbcdn.net/v/t39.30808-6/486569726_1191007513036159_5898075187586100511_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_ohc=M0OCqQSZgj0Q7kNvwEvZdN_&_nc_oc=AdkN249SZ4R-MMXEIVoo0QvKKi5Q5cLAcAmiSDEPOdO3p5fW96Bdy15WIfwzKjZpZJ_16XDEn8FR6B0lZZpGkxzs&_nc_zt=23&_nc_ht=scontent.fbir1-1.fna&_nc_gid=PnREg4zJkv_lOmVVHMPmhw&oh=00_AfNR-S_Ptb3lpGPZcTI1iFlSYAuj3DQ7-uY-9XzMqc5i-Q&oe=68654294",
+    imageUrl: "https://scontent.fbir1-1.fna.fbcdn.net/v/t39.30808-6/485375877_1185423516927892_3942888763944090270_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=KO7Etsjcb3YQ7kNvwGnxn8M&_nc_oc=Adlj_LKAE6SeW7KcflqF_WT3sU0G9gItHNKvVWW1CZkVyzx5Pb5nooD8kkokkRJWJPf7-i7M1i6cT83B3c-X_Wa-&_nc_zt=23&_nc_ht=scontent.fbir1-1.fna&_nc_gid=wlu72iano9_qIIqakVhT2Q&oh=00_AfSB61ZtOVRay99ow5Q4AX_M1eNytkgQVq2QtkoyCgGPRg&oe=686E98B2",
     brand: "PHEDAP STITCHES",
     title: "Phedap Woven Ethnic Daura Suruwal",
-    color: "Maroon",
-    discountedPrice: 1399,
-    price: 2999,
-    discountPersent: 53,
+    color: "cotton white",
+    price: 6899,
+    discountPersent: 54,
+    discountedPrice: 3173,
     size: [
       { name: "S", quantity: 8 },
       { name: "M", quantity: 18 },
@@ -64,14 +60,13 @@ export const daura_suruwal = [
       "A graceful maroon Daura Suruwal made from high-quality cotton fabric. Perfect for traditional weddings and pujas.",
   },
   {
-    imageUrl:
-      "https://scontent.fbir1-1.fna.fbcdn.net/v/t39.30808-6/485390109_1185712396899004_670224944587796858_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=Lf63WJD7c-IQ7kNvwGtxc0d&_nc_oc=AdlxaM2znvWd7Rh2f0CDjz5rvQHiBW52JXuBQqy2zagBIddfvjNjoBjtBy21YG35O10vmopNQRMVUQHSgA0axvsC&_nc_zt=23&_nc_ht=scontent.fbir1-1.fna&_nc_gid=kXcHT5-6ACEVKeGmP5C7WA&oh=00_AfP7PXEhIZnolbTWsCDJVuG4BKgX3Dai7Pnz_qFdBAMF0w&oe=68654354",
+    imageUrl: "https://scontent.fbir1-1.fna.fbcdn.net/v/t39.30808-6/483069120_1178352877634956_1722333723297923243_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=b0dauDWurvwQ7kNvwEXOrur&_nc_oc=Adn8a9v_x3hSik4XleP7Vhf-OEu6PvuV7ZyqzEM_xWX3X5ZX4I2UC8s2Qgs221a4boBLXycp-HbDYGQ-HsoIiinb&_nc_zt=23&_nc_ht=scontent.fbir1-1.fna&_nc_gid=6S2snPV8bBH9DzdRTy-FGg&oh=00_AfTaSwvJEKvj-IZievrM7Q3ezi8DixIlcy_dVvEgVZVnCw&oe=686E928B",
     brand: "HELLOK TAILORS",
     title: "Hellok Village Style Limbu Daura",
     color: "Grey",
-    discountedPrice: 1499,
-    price: 3099,
-    discountPersent: 52,
+    price: 7499,
+    discountPersent: 53,
+    discountedPrice: 3524,
     size: [
       { name: "S", quantity: 15 },
       { name: "M", quantity: 20 },
@@ -85,14 +80,13 @@ export const daura_suruwal = [
       "Made from premium linen, this grey Daura Suruwal offers elegance with comfort. Great for official and ceremonial events.",
   },
   {
-    imageUrl:
-      "https://scontent.fbir1-1.fna.fbcdn.net/v/t39.30808-6/485375877_1185423516927892_3942888763944090270_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=MY_LKjvenlAQ7kNvwHnv8az&_nc_oc=AdmtraBYtRh9FX3ZDJIxRTLJT4KCUkuVXRb2YDyLDtKzmide7sHc-aKkcLfd07e1GM8yoWBxnRz4DWX5DVcd71Ir&_nc_zt=23&_nc_ht=scontent.fbir1-1.fna&_nc_gid=G56UaGHP7h310zNx4H5-lQ&oh=00_AfOkZBjO6OV4onx6J2nu4MJMQiPwZTrTFx5JRdLPc8w60g&oe=686525F2",
+    imageUrl: "https://scontent.fbir1-1.fna.fbcdn.net/v/t39.30808-6/480257996_1512349473485998_4816143507541569922_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=YhNvxFXjg_MQ7kNvwF9sZTs&_nc_oc=AdniG3izpfCfA1F5Rv6D6gPZngLi8PiiTLJoImbNyVoASqLp8ZL-KoXc1t7syBQomKev95hHbG5vKyROE-m2W0IS&_nc_zt=23&_nc_ht=scontent.fbir1-1.fna&_nc_gid=k17j6AqW5yQRUQ_DOaZdhg&oh=00_AfSwjJ6N8mSDYDb3AJkcO0X4wITH1Ly1JbtcmZn-7Edvag&oe=686EAB83",
     brand: "LIMBUWAN CLASSICS",
     title: "Limbuwan Classic National Daura Suruwal",
     color: "Royal Blue",
-    discountedPrice: 1349,
-    price: 2899,
-    discountPersent: 53,
+    price: 6399,
+    discountPersent: 49,
+    discountedPrice: 3263,
     size: [
       { name: "S", quantity: 10 },
       { name: "M", quantity: 15 },
@@ -106,14 +100,13 @@ export const daura_suruwal = [
       "This striking royal blue Daura Suruwal features a matching fabric belt and reinforced shoulder seams for durability.",
   },
   {
-    imageUrl:
-      "https://scontent.fbir1-1.fna.fbcdn.net/v/t39.30808-6/483069120_1178352877634956_1722333723297923243_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=3ZArgsGxYpYQ7kNvwEPYeb5&_nc_oc=AdnTW3pB97n1YCqSN5ALKGu5pcJVnRi7g2fWuJEhJPxh0Wvj1bITF5QiJBZBSh7vlk75Dr5RxZ_p0Kf2pP7AVNo5&_nc_zt=23&_nc_ht=scontent.fbir1-1.fna&_nc_gid=qxpcVSaZn55TzutYXDpodA&oh=00_AfPgulghF291GkhQx7MJRydRQqbqgkahuNvcYyNc5y1GAA&oe=68651FCB",
+    imageUrl: "https://scontent.fbir1-1.fna.fbcdn.net/v/t39.30808-6/480427354_1511287216925557_3065856213989316244_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_ohc=wEph_td2mpUQ7kNvwF79X9R&_nc_oc=AdmDU9yIWTwB9L0mejjCa36SBTsbF7zGaPe_RQutOjcGGw-XTm24lYFQq0Kzdl-GNmsRfOR07fDGzt5nKEHbc4x6&_nc_zt=23&_nc_ht=scontent.fbir1-1.fna&_nc_gid=ycJVKit47wS-7IKSo3Za3w&oh=00_AfQyNhznh_slDOzWIvyqkSTsN0VpXPR0Am7Nt4lN_yojCw&oe=686E989C",
     brand: "YOKWA FIT",
     title: "Yokwa Slim-Fit Contemporary Daura",
     color: "Cream",
-    discountedPrice: 1599,
-    price: 3199,
-    discountPersent: 50,
+    price: 5899,
+    discountPersent: 52,
+    discountedPrice: 2831,
     size: [
       { name: "S", quantity: 12 },
       { name: "M", quantity: 20 },
@@ -127,14 +120,13 @@ export const daura_suruwal = [
       "Crafted from silk blend fabric, this cream-colored Daura Suruwal is ideal for wedding ceremonies and national events.",
   },
   {
-    imageUrl:
-      "https://scontent.fbir1-1.fna.fbcdn.net/v/t39.30808-6/480257996_1512349473485998_4816143507541569922_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=U5wLgXs2l5YQ7kNvwFPQl0H&_nc_oc=AdmufSq_yu0nODqepXjoF-2Hr0SxF-GD9O-iyWhd3YIiY6kNxmaf9YDazQtdBlsPMVyBQwwiCKRxBeCibvPyL_gq&_nc_zt=23&_nc_ht=scontent.fbir1-1.fna&_nc_gid=9huHmPp3Z_LZwgAXJWbe5Q&oh=00_AfNdRwHbpSeEYdLDs8YL_je2_a5CEnzXuJHoDI0vcnBrhg&oe=686538C3",
+    imageUrl: "https://scontent.fbir1-1.fna.fbcdn.net/v/t39.30808-6/471665276_1476091377111808_4334075566873652721_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=sUlsdRe0bWEQ7kNvwELBu19&_nc_oc=AdnZwU1cTpSN1hwi_adktifx716H8V1SMrX066xeiBRoEhf9-VWWStE2IcamuGrQLIEU0QaT4TXz9frIGVvR25ae&_nc_zt=23&_nc_ht=scontent.fbir1-1.fna&_nc_gid=eVWIs_VWy3-tKyVA8kTHFQ&oh=00_AfQ8xsi2_0WjD5qmoADd2kIvH2zZqD4cDsWcjtoZZ_aF2Q&oe=686E9840",
     brand: "CHYABRUNG COUTURE",
     title: "Chyabrung Festival Special Dhaka Daura",
     color: "Brown",
-    discountedPrice: 999,
-    price: 2299,
-    discountPersent: 57,
+    price: 4699,
+    discountPersent: 55,
+    discountedPrice: 2114,
     size: [
       { name: "S", quantity: 10 },
       { name: "M", quantity: 18 },
@@ -148,14 +140,13 @@ export const daura_suruwal = [
       "A minimalistic brown Daura Suruwal set that emphasizes comfort and cultural integrity. Suitable for all age groups.",
   },
   {
-    imageUrl:
-      "https://scontent.fbir1-1.fna.fbcdn.net/v/t1.6435-9/147829288_483084359745853_710685090227266126_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_ohc=3lOw5eKE5oIQ7kNvwGm9MuB&_nc_oc=AdlFuE0UXdZvt_VHb_NAk9aUJ3BAs0sr5Go6DIrAr8Ad38CKNGdU4bYPhvqqX3BRKkG5PLhX7W7G0WaGda8bcUiT&_nc_zt=23&_nc_ht=scontent.fbir1-1.fna&_nc_gid=vI_tVekD_1sChj7XTLfNlg&oh=00_AfMEA4sCEHVTpVKDBYG2gL3B0m5nJqg3AIFhXFEnvLI5gA&oe=6886C066",
+    imageUrl: "https://scontent.fbir1-1.fna.fbcdn.net/v/t1.6435-9/147011113_483084409745848_1150593206738875964_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_ohc=aWxJa7DEE08Q7kNvwFd0Twi&_nc_oc=Adn9DqqUfsVKFyFt2yQdd84Lk9Z6UJkCD5hztd1850d_jMVNnHEKZ2g-wkHnBYAd6zQMsd8LzuiGzWokZD8P3lu8&_nc_zt=23&_nc_ht=scontent.fbir1-1.fna&_nc_gid=RgG5o8Ryl9qAfdu2_zX0cA&oh=00_AfTJ3DiGjhMv_SRrsnPi2_nUzC9agrPpWlxZzhwvkTDHUw&oe=689031CD",
     brand: "PAATHIVARA PRIDE",
     title: "Paathivara Ceremonial Pure Cotton Daura",
     color: "Olive Green",
-    discountedPrice: 1249,
-    price: 2699,
-    discountPersent: 54,
+    price: 5199,
+    discountPersent: 50,
+    discountedPrice: 2599,
     size: [
       { name: "S", quantity: 11 },
       { name: "M", quantity: 19 },
@@ -169,14 +160,13 @@ export const daura_suruwal = [
       "A casual yet classy take on Daura Suruwal using light cotton fabric, perfect for daily or informal cultural settings.",
   },
   {
+    imageUrl: "https://scontent.fbir1-1.fna.fbcdn.net/v/t1.6435-9/147829288_483084359745853_710685090227266126_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_ohc=ULbqpsbBIIYQ7kNvwG1zyyc&_nc_oc=Adm3Y8Ue_4CEhkkBlWwt4B8RE0bt9m7_RBxUzEEAPExeWxju9b42FJxJKCk6mF9OjKDc8mJZtdXKieRkmd4yp9h0&_nc_zt=23&_nc_ht=scontent.fbir1-1.fna&_nc_gid=-KSjQ70Z-nItLaKLc2eHyw&oh=00_AfQR6oKr6yQhyFluG5VhyPsLySzPUl4d9Lak5J3PSCKWwQ&oe=68903326",
     brand: "MANGHIM MENSWEAR",
     title: "Manghim Ritual Wear Dhaka Daura Set",
-    color: "Khaki",
-    discountedPrice: 1099,
-    price: 2399,
-    discountPersent: 54,
-    imageUrl:
-      "https://scontent.fbir1-1.fna.fbcdn.net/v/t1.6435-9/148235672_483084353079187_5411761657757153235_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=RckDVhFAzX4Q7kNvwEWvky9&_nc_oc=AdmaPTdsI5L7ilsJUyN9ZBbbluj6dCs-XKTVG0lNO7-ZekCPbU1hBwkLkyEnPGQWU-78h7R-foX1L7kKa3FJ1tMS&_nc_zt=23&_nc_ht=scontent.fbir1-1.fna&_nc_gid=qy0hys7tqFPP36V0PN6OVA&oh=00_AfM7d4mxshh6LzruJKHnYZfNH_uxXbQMdSYIDWfg3jmGYA&oe=6886BB84",
+    color: "cotton white",
+    price: 4399,
+    discountPersent: 52,
+    discountedPrice: 2111,
     size: [
       { name: "S", quantity: 12 },
       { name: "M", quantity: 18 },
@@ -190,14 +180,13 @@ export const daura_suruwal = [
       "Inspired by traditional Gorkhali attire, this khaki Daura Suruwal merges military heritage with cultural roots.",
   },
   {
+    imageUrl: "https://scontent.fbir1-1.fna.fbcdn.net/v/t1.6435-9/148235672_483084353079187_5411761657757153235_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=PujWMvABMk4Q7kNvwGRtJBW&_nc_oc=AdllSuOPxJPEvTYge8Q4htycYb4I7gcM-K25mLcSrAFOwWFruRibLp6cjZx44a3hB5niH2cvw94Lf4PyulBykXdm&_nc_zt=23&_nc_ht=scontent.fbir1-1.fna&_nc_gid=glIByd7-0x3G0ttCRBki0A&oh=00_AfQ-0lJDSxBoym7G-ZO-A2GhomSnBYoDkN7BWmMY3AOwHw&oe=68902E44",
     brand: "SANSARI STITCH",
     title: "Sansari Handwoven Everyday Daura Suruwal",
     color: "Sky Blue",
-    discountedPrice: 1399,
-    price: 2999,
-    discountPersent: 53,
-    imageUrl:
-      "https://scontent.fbir1-1.fna.fbcdn.net/v/t1.6435-9/147011113_483084409745848_1150593206738875964_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_ohc=pnJZpaq855wQ7kNvwHbW8gY&_nc_oc=AdmW4XVbMOGaaayyX13rA0s3n7J_StVj8V_pKVB8lfxfkehEQx6pOqDsPe75Sl-e1tqx6SrGYVLCp8UlEu9k1d9-&_nc_zt=23&_nc_ht=scontent.fbir1-1.fna&_nc_gid=sAWcqXHhi0kxBh4BHQqSyg&oh=00_AfNpRfX4yG8X7NlqQRa4N3IeVJOUF5JyPgz36RYis2xBNQ&oe=6886BF0D",
+    price: 4899,
+    discountPersent: 55,
+    discountedPrice: 2204,
     size: [
       { name: "S", quantity: 14 },
       { name: "M", quantity: 18 },
