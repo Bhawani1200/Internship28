@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Page;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -42,6 +41,9 @@ public class ProductController {
     }
 
 
-
-
+    @GetMapping("/products/id/{productId}")
+    public ResponseEntity<Product>findProductByIdHandler(@PathVariable Long productId)throws ProductException{
+        Product product=productService.findProductById(productId);
+        return new ResponseEntity<>(product,HttpStatus.ACCEPTED);
+    }
 }
