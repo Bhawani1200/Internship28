@@ -107,9 +107,11 @@ export default function Product() {
   const handlePaginationChange = (event, value) => {
     const searchParams = new URLSearchParams(location.search);
     searchParams.set("page", value);
+    console.log("totlaPages", products.products?.totalPages);
     const query = searchParams.toString();
     navigate({ search: `?${query}` });
   };
+
   useEffect(() => {
     const [minPrice, maxPrice] =
       priceValue === null ? [0, 10000] : priceValue.split("-").map(Number);
@@ -136,7 +138,6 @@ export default function Product() {
     pageNumber,
     stock,
   ]);
-
 
   return (
     <div>
@@ -454,29 +455,20 @@ export default function Product() {
                 ))}
               </form>
             </div>
-            {/* Product grid */}
-            {/* <div className="lg:col-span-4 w-full">
-              <div className="flex flex-wrap justify-center bg-white py-5">
-                {products.products &&
-                  products.products?.content?.map((item) => (
-                    <ProductCard product={item} key={item.id} />
-                  ))}
-              </div>
-            </div> */}
+
             <div className="lg:col-span-4 w-full">
               <div className="flex flex-wrap justify-center bg-white py-5">
                 {products.products?.content.map((item) => (
-                    <ProductCard product={item} key={item.id} />
-                  ))}
+                  <ProductCard product={item} key={item.id} />
+                ))}
               </div>
             </div>
-        
           </div>
         </section>
         <section className="w-full px=[3.6rem]">
           <div className="flex px-4 py-5 justify-center">
             <Pagination
-              count={products.products?.totalPages}
+              count={products.products?.totalPages || 1}
               color="secondary"
               onChange={handlePaginationChange}
             />

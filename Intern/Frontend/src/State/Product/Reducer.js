@@ -11,6 +11,7 @@ const initialState = {
     content: [],
     totalPages: 0,
   },
+  product:null,
   loading: false,
   error: null
 };

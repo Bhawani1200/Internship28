@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { Radio, RadioGroup } from "@headlessui/react";
 import { Box, Button, Grid, LinearProgress, Rating } from "@mui/material";
@@ -74,12 +73,11 @@ export default function ProductDetails() {
     dispatch(findProductsById(data));
     navigate("/cart");
   };
-useEffect(() => {
-  if (params.productId) {
-    dispatch(findProductsById(params.productId));
-  }
-}, [params.productId, dispatch]);
 
+  useEffect(() => {
+    const data={productId:params.productId}
+    dispatch(findProductsById(data))
+  }, [params.productId, dispatch]);
 
   return (
     <div className="bg-white lg:px-20">
@@ -124,7 +122,7 @@ useEffect(() => {
           <div className="flex flex-col items-center">
             <img
               alt={product.images[0].alt}
-              src={products.products?.imageUrl}
+              src={products.product?.imageUrl}
               className="overflow-hidden rounded-lg max-w-[30rem] max-h-[35rem]"
             />
             <div className="flex flex-wrap space-x-5 justify-center mt-4">
@@ -236,7 +234,7 @@ useEffect(() => {
 
                 <div className="mt-2">
                   <Button
-                    onClick={ handleAddToCart}
+                    onClick={handleAddToCart}
                     variant="contained"
                     sx={{ px: "2rem", py: "1rem", bgcolor: "#9155fd" }}
                   >

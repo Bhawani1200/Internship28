@@ -13,9 +13,10 @@ export const filters = [
     name: "Color",
     options: [
       { value: "white", label: "white" },
-      { value: "Red", label: "Red" },
-      { value: "Pink", label: "Pink" },
-      { value: "Green", label: "Green" },
+      { value: "cotton white", label: "cotton white" },
+      { value: "cream", label: "cream" },
+      { value: "slight white", label: "slight white" },
+      { value: "brown", label: "brown" },
     ],
   },
   {
