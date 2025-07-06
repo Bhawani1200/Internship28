@@ -29,7 +29,7 @@ const CartItem = ({ item }) => {
           </div>
         </div>
       </div>
-      <div className="lg:flex items-center lg:space-x-10 pt-4">
+      <div className="lg:flex items-center lg:space-x-10 pt-4 mb-10">
         <div className="flex items-center space-x-2">
           <IconButton>
             <RemoveCircleOutlineIcon />

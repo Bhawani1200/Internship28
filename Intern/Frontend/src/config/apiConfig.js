@@ -11,10 +11,7 @@
 //   },
 // });
 import axios from "axios";
-
 export const API_BASE_URL = "http://localhost:5454";
-
-// Create axios instance without static headers
 export const api = axios.create({
   baseURL: API_BASE_URL,
   headers: {
@@ -22,16 +19,12 @@ export const api = axios.create({
   }
 });
 
-// Add request interceptor to dynamically add token
 api.interceptors.request.use(
   (config) => {
     const jwt = localStorage.getItem("jwt");
-    
     if (jwt) {
-      // Add space after "Bearer" - CRITICAL FIX
       config.headers.Authorization = `Bearer ${jwt}`;
     }
-    
     return config;
   },
   (error) => {

@@ -17,6 +17,7 @@ export const filters = [
       { value: "cream", label: "cream" },
       { value: "slight white", label: "slight white" },
       { value: "brown", label: "brown" },
+      { value: "grey", label: "grey" },
     ],
   },
   {

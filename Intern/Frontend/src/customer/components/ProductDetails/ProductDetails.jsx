@@ -69,17 +69,20 @@ export default function ProductDetails() {
   const dispatch = useDispatch();
   const { products } = useSelector((store) => store);
 
+  console.log("----", params.productId);
+
   const handleAddToCart = () => {
-    const data = { productId: params.productId };
+    const data = { productId: params.productId, size: selectedSize.name };
+    console.log("data",data)
     dispatch(addItemToCart(data));
     navigate("/cart");
   };
 
   useEffect(() => {
-    const data = { productId: params.productId,size:selectedSize.name };
-    console.log("data",data)
+    const data = { productId: params.productId };
+    console.log("data", data);
     dispatch(findProductsById(data));
-  }, [params.productId, dispatch,selectedSize]);
+  }, [params.productId, dispatch, selectedSize]);
 
   return (
     <div className="bg-white lg:px-20">
@@ -156,13 +159,13 @@ export default function ProductDetails() {
               <h2 className="sr-only">Product information</h2>
               <div className="flex space-x-5 items-center text-lg lg:text-xl text-gray-900 mt-6">
                 <p className="font-semibold">
-                  {products.product?.discountedPrice}
+                  रु{products.product?.discountedPrice}
                 </p>
                 <p className="opacity-50 line-through">
-                  {products.product?.price}
+                  रु{products.product?.price}
                 </p>
                 <p className="text-green-600 font-semibold">
-                  {products.product?.discountedPersent}%off
+                  {products.product?.discountPersent}%off
                 </p>
               </div>
 

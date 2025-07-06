@@ -123,7 +123,7 @@ export default function Product() {
       maxPrice,
       minDiscount: discount || 0,
       pageNumber: pageNumber - 1,
-      pageSize: 10,
+      pageSize: 5,
       sortValue: sortValue || "price_low",
       stock: stock,
     };

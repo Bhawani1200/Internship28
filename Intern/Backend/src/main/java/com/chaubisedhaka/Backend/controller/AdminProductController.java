@@ -2,6 +2,7 @@ package com.chaubisedhaka.Backend.controller;
 
 import com.chaubisedhaka.Backend.exception.ProductException;
 import com.chaubisedhaka.Backend.model.Product;
+import com.chaubisedhaka.Backend.repository.CartItemRepository;
 import com.chaubisedhaka.Backend.request.CreateProductRequest;
 import com.chaubisedhaka.Backend.response.ApiResponse;
 import com.chaubisedhaka.Backend.service.ProductService;
@@ -18,6 +19,8 @@ public class AdminProductController {
 
     @Autowired
     private ProductService productService;
+
+    private CartItemRepository cartItemRepository;
 
     @PostMapping("/")
     public ResponseEntity<Product>createProduct(@RequestBody CreateProductRequest req){
