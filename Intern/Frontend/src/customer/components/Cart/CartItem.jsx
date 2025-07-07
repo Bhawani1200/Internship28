@@ -1,22 +1,23 @@
-import { IconButton } from "@mui/material";
 import React from "react";
+import { IconButton } from "@mui/material";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import Button from "@mui/material/Button";
 const CartItem = ({ item }) => {
+  
   return (
     <div className="p-5 shadow-lg border rounded-md mb-6">
       <div className="flex items-center">
         <div className="w-[5rem] h-[5rem] lg:w-[9rem] lg:h-[9rem]">
           <img
-            className="w-fill h-full object-cover object-top"
+            className="w-full h-full object-cover object-top"
             src={item.product.imageUrl}
             alt=""
           />
         </div>
         <div className="ml-4 space-y-1">
           <p className="font-semibold">{item.product.title}</p>
-          <p className="opacity-70">Size: L,Red</p>
+          <p className="opacity-70">Size: {item.size}</p>
           <p className="opacity-70">Seller:{item.product.brand} </p>
           <div className="flex space-x-5 items-center text-gray-900 mt-6 pt-6">
             <p className="font-semibold">रू{item.price}</p>
@@ -24,7 +25,7 @@ const CartItem = ({ item }) => {
               रू{item.product.discountedPrice}
             </p>
             <p className="text-green-600 font-semibold">
-              5%{item.product.discountPersent}
+              {item.product.discountPersent}%Off
             </p>
           </div>
         </div>

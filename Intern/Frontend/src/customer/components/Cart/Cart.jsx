@@ -22,8 +22,8 @@ const Cart = () => {
     <div>
       <div className="lg:grid grid-cols-3 lg:px-16 relative">
         <div className="col-span-2">
-          {cart.cart?.cartItems.map((item) => (
-            <CartItem item={item} />
+          {cart.cart?.cartItems?.map((item,) => (
+            <CartItem item={item} key={item.id} />
           ))}
         </div>
         <div className="px-5 sticky top-0 h=[100vh] mt-5 lg:mt-0">
