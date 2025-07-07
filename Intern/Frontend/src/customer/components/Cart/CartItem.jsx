@@ -11,10 +11,12 @@ const CartItem = ({ item }) => {
   const handleUpdateCartItem = (num) => {
     const data = {
       data: { quantity: item.quantity + num },
-      cartItemId: item?.id}
+      cartItemId: item?.id,
+    };
+    console.log("updating item", item.id);
     dispatch(updateCartItem(data));
   };
-  
+
   const handleRemoveCartItem = () => {
     dispatch(removeCartItem(item.id));
   };
