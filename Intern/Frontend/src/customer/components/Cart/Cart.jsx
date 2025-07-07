@@ -16,13 +16,13 @@ const Cart = () => {
 
   useEffect(() => {
     dispatch(getCartRequest());
-  }, [dispatch]);
+  }, [cart.deleteCartItem, cart.updateCartItem, dispatch]);
 
   return (
     <div>
       <div className="lg:grid grid-cols-3 lg:px-16 relative">
         <div className="col-span-2">
-          {cart.cart?.cartItems?.map((item,) => (
+          {cart.cart?.cartItems?.map((item) => (
             <CartItem item={item} key={item.id} />
           ))}
         </div>
@@ -39,7 +39,10 @@ const Cart = () => {
               </div>
               <div className="flex justify-between pt-3 ">
                 <span>Discount</span>
-                <span className=" text-green-600">{cart.cart?.discount}%</span>
+                <span className=" text-green-600">
+                  {" "}
+                  रू{cart.cart?.discount}
+                </span>
               </div>
               <div className="flex justify-between pt-3 ">
                 <span>Delivery Charge</span>
