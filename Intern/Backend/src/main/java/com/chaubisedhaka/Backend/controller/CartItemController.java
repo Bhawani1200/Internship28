@@ -38,7 +38,7 @@ public class CartItemController {
     public ResponseEntity<CartItem> updateCartItem(
             @PathVariable Long cartItemId,
             @RequestBody UpdateCartItemRequest req
-    ) throws CartItemException, ExecutionControl.UserException, ExecutionControl.UserException {
+    ) throws CartItemException, ExecutionControl.UserException {
 
         CartItem existingCartItem = cartItemService.findCartItemById(cartItemId);
         Long userId = existingCartItem.getUserId();
