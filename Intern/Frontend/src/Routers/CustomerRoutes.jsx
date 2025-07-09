@@ -15,6 +15,7 @@ const CustomerRoutes = () => {
     <div>
       <div>
         <Navigation />
+     
       </div>
       <Routes>
         <Route path="/login" element={<HomePage />}></Route>

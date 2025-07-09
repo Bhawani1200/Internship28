@@ -20,14 +20,14 @@ const OrderSummary = () => {
   return (
     <div>
       <div className="p-5 shadow-lg rounded-s-md border">
-        <AddressCard address={order.order?.shippingAddress}/>
+        <AddressCard address={order.order?.shippingAddress} />
       </div>
       <div className="mt-8">
         <div className="lg:grid grid-cols-3  relative">
           <div className="col-span-2">
-            {/* {order.order?.orderItems?.map((item) => (
+            {order.order?.orderItems?.map((item) => (
               <CartItem item={item} />
-            ))} */}
+            ))}
           </div>
           <div className="px-5 sticky top-0 h=[100vh] mt-5 lg:mt-0">
             <div className="border">
@@ -38,19 +38,23 @@ const OrderSummary = () => {
               <div className="space-y-3 font-semibold mb-10">
                 <div className="flex justify-between pt-3 text-black">
                   <span>Price</span>
-                  <span>रू4000</span>
+                  <span>रू{order.order?.TotalPrice}</span>
                 </div>
                 <div className="flex justify-between pt-3 ">
                   <span>Discount</span>
-                  <span className=" text-green-600">14%</span>
+                  <span className=" text-green-600">
+                    {order.order?.discount}%
+                  </span>
                 </div>
                 <div className="flex justify-between pt-3 ">
                   <span>Delivery Charge</span>
-                  <span className=" text-green-600">रू100</span>
+                  <span className=" text-green-600">Free</span>
                 </div>
                 <div className="flex justify-between pt-3  font-bold">
                   <span>Total Amount</span>
-                  <span className="text-green-600">रू2900</span>
+                  <span className="text-green-600">
+                    रू{order.order?.totalDiscountPrice}
+                  </span>
                 </div>
               </div>
               <Button

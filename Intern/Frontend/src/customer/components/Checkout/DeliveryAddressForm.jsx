@@ -15,10 +15,10 @@ const DeliveryAddressForm = () => {
     const address = {
       firstName: data.get("firstName"),
       lastName: data.get("lastName"),
-      Address: data.get("address"),
-      City: data.get("city"),
-      State: data.get("state"),
-      Phone: data.get("phone"),
+      address: data.get("streetAddress"),
+      city: data.get("city"),
+      state: data.get("state"),
+      phone: data.get("phone"),
     };
     const orderData = { address, navigate };
     dispatch(createOrder(orderData));
