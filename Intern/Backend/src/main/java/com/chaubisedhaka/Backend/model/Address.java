@@ -38,7 +38,7 @@ public class Address {
     @JoinColumn(name="user_id")
     private User user;
 
-    private String mobile;
+    private String phone;
 
 
 }
